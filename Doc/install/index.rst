@@ -19,8 +19,8 @@
    about Python and aren't about to learn the language just in order to
    install and maintain it for their users, i.e. system administrators.
    Thus, I have to be sure to explain the basics at some point:
-   sys.path and PYTHONPATH at least.  Should probably give pointers to
-   other docs on "import site", PYTHONSTARTUP, PYTHONHOME, etc.
+   sys.path and OMPYTHONPATH at least.  Should probably give pointers to
+   other docs on "import site", OMPYTHONSTARTUP, OMPYTHONHOME, etc.
 
    Finally, it might be useful to include all the material from my "Care
    and Feeding of a Python Installation" talk in here somewhere.  Yow!
@@ -726,13 +726,13 @@ the stock version.  You'd have to remember that it was modified and save a copy
 before doing the installation.
 
 There are two environment variables that can modify ``sys.path``.
-:envvar:`PYTHONHOME` sets an alternate value for the prefix of the Python
-installation.  For example, if :envvar:`PYTHONHOME` is set to ``/www/python``,
+:envvar:`OMPYTHONHOME` sets an alternate value for the prefix of the Python
+installation.  For example, if :envvar:`OMPYTHONHOME` is set to ``/www/python``,
 the search path will be set to ``['', '/www/python/lib/pythonX.Y/',
 '/www/python/lib/pythonX.Y/plat-linux2', ...]``.
 
-The :envvar:`PYTHONPATH` variable can be set to a list of paths that will be
-added to the beginning of ``sys.path``.  For example, if :envvar:`PYTHONPATH` is
+The :envvar:`OMPYTHONPATH` variable can be set to a list of paths that will be
+added to the beginning of ``sys.path``.  For example, if :envvar:`OMPYTHONPATH` is
 set to ``/www/python:/opt/py``, the search path will begin with
 ``['/www/python', '/opt/py']``.  (Note that directories must exist in order to
 be added to ``sys.path``; the :mod:`site` module removes paths that don't

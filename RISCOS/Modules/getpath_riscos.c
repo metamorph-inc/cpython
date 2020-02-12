@@ -14,8 +14,8 @@ calculate_path()
             strncpy(module_search_path, pypath, pathlen + 1);
         else {
             fprintf(stderr,
-                "Not enough memory for dynamic PYTHONPATH.\n"
-                "Using default static PYTHONPATH.\n");
+                "Not enough memory for dynamic OMPYTHONPATH.\n"
+                "Using default static OMPYTHONPATH.\n");
         }
     }
     if (!module_search_path)

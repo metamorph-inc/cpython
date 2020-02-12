@@ -204,14 +204,14 @@ class HelperFunctionsTests(unittest.TestCase):
         self.assertEqual(rc, 0)
 
         env = os.environ.copy()
-        env["PYTHONNOUSERSITE"] = "1"
+        env["OMPYTHONNOUSERSITE"] = "1"
         rc = subprocess.call([sys.executable, '-c',
             'import sys; sys.exit(%r in sys.path)' % usersite],
             env=env)
         self.assertEqual(rc, 0)
 
         env = os.environ.copy()
-        env["PYTHONUSERBASE"] = "/tmp"
+        env["OMPYTHONUSERBASE"] = "/tmp"
         rc = subprocess.call([sys.executable, '-c',
             'import sys, site; sys.exit(site.USER_BASE.startswith("/tmp"))'],
             env=env)
@@ -224,13 +224,13 @@ class HelperFunctionsTests(unittest.TestCase):
         # the call sets site.USER_BASE
         self.assertEqual(site.USER_BASE, user_base)
 
-        # let's set PYTHONUSERBASE and see if it uses it
+        # let's set OMPYTHONUSERBASE and see if it uses it
         site.USER_BASE = None
         import sysconfig
         sysconfig._CONFIG_VARS = None
 
         with EnvironmentVarGuard() as environ:
-            environ['PYTHONUSERBASE'] = 'xoxo'
+            environ['OMPYTHONUSERBASE'] = 'xoxo'
             self.assertTrue(site.getuserbase().startswith('xoxo'),
                             site.getuserbase())
 
@@ -278,7 +278,7 @@ class HelperFunctionsTests(unittest.TestCase):
         with EnvironmentVarGuard() as environ, \
              support.swap_attr(os.path, 'expanduser', lambda path: path):
 
-            del environ['PYTHONUSERBASE']
+            del environ['OMPYTHONUSERBASE']
             del environ['APPDATA']
 
             user_base = site.getuserbase()

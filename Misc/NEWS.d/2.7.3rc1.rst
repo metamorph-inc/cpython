@@ -14,7 +14,7 @@ by Suman Saha.
 .. nonce: 8FylqY
 .. section: Core and Builtins
 
-oCERT-2011-003: add -R command-line option and PYTHONHASHSEED environment
+oCERT-2011-003: add -R command-line option and OMPYTHONHASHSEED environment
 variable, to provide an opt-in way to protect against denial of service
 attacks due to hash collisions within the dict and set types.  Patch by
 David Malcolm, based on work by Victor Stinner.
@@ -1707,7 +1707,7 @@ Prevent test_distutils failures on OS X with --enable-shared.
 .. nonce: jDDi97
 .. section: Tests
 
-Skip test case if user site-packages disabled (-s or PYTHONNOUSERSITE).
+Skip test case if user site-packages disabled (-s or OMPYTHONNOUSERSITE).
 (Patch by Carl Meyer)
 
 ..
@@ -1874,7 +1874,7 @@ Document absoluteness of sys.executable.
 .. nonce: atFSNh
 .. section: Documentation
 
-PYTHONCASEOK also works on OS X, OS/2, and RiscOS.
+OMPYTHONCASEOK also works on OS X, OS/2, and RiscOS.
 
 ..
 

@@ -629,8 +629,8 @@ static HINSTANCE LoadPythonDll(char *fname)
     char buffer[260 + 12];
     HINSTANCE h;
 
-    /* make sure PYTHONHOME is set, to that sys.path is initialized correctly */
-    wsprintf(buffer, "PYTHONHOME=%s", python_dir);
+    /* make sure OMPYTHONHOME is set, to that sys.path is initialized correctly */
+    wsprintf(buffer, "OMPYTHONHOME=%s", python_dir);
     _putenv(buffer);
     h = LoadLibrary(fname);
     if (h)
@@ -1297,11 +1297,11 @@ static LPSTR get_sys_prefix(LPSTR exe, LPSTR dll)
 
     {
         char Buffer[256];
-        wsprintf(Buffer, "PYTHONHOME=%s", exe);
+        wsprintf(Buffer, "OMPYTHONHOME=%s", exe);
         *strrchr(Buffer, '\\') = '\0';
-//      MessageBox(GetFocus(), Buffer, "PYTHONHOME", MB_OK);
+//      MessageBox(GetFocus(), Buffer, "OMPYTHONHOME", MB_OK);
                 _putenv(Buffer);
-                _putenv("PYTHONPATH=");
+                _putenv("OMPYTHONPATH=");
     }
 
     hPython = LoadLibrary(dll);

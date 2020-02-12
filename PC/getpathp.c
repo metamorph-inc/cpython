@@ -11,7 +11,7 @@
    * Python always adds an empty entry at the start, which corresponds
      to the current directory.
 
-   * If the PYTHONPATH env. var. exists, its entries are added next.
+   * If the OMPYTHONPATH env. var. exists, its entries are added next.
 
    * We look in the registry for "application paths" - that is, sub-keys
      under the main PythonPath registry key.  These are added next (the
@@ -21,7 +21,7 @@
      (Note that all known installers only use HKLM, so HKCU is typically
      empty)
 
-   * We attempt to locate the "Python Home" - if the PYTHONHOME env var
+   * We attempt to locate the "Python Home" - if the OMPYTHONHOME env var
      is set, we believe it.  Otherwise, we use the path of our host .EXE's
      to try and locate our "landmark" (lib\\os.py) and deduce our home.
      - If we DO have a Python Home: The relevant sub-directories (Lib,
@@ -30,7 +30,7 @@
        loaded from the registry.  This is the main PythonPath key,
        and both HKLM and HKCU are combined to form the path)
 
-   * Iff - we can not locate the Python Home, have not had a PYTHONPATH
+   * Iff - we can not locate the Python Home, have not had a OMPYTHONPATH
      specified, and can't locate any Registry entries (ie, we have _nothing_
      we can assume is a good path), a default path with relative entries is
      used (eg. .\Lib;.\plat-win, etc)
@@ -207,7 +207,7 @@ search_for_prefix(char *argv0_path, char *landmark)
 extern const char *PyWin_DLLVersionString;
 
 
-/* Load a PYTHONPATH value from the registry.
+/* Load a OMPYTHONPATH value from the registry.
    Load from either HKEY_LOCAL_MACHINE or HKEY_CURRENT_USER.
 
    Works in both Unicode and 8bit environments.  Only uses the
@@ -466,7 +466,7 @@ calculate_path(void)
     char *buf;
     size_t bufsz;
     char *pythonhome = Py_GetPythonHome();
-    char *envpath = Py_GETENV("PYTHONPATH");
+    char *envpath = Py_GETENV("OMPYTHONPATH");
 
 #ifdef MS_WINDOWS
     int skiphome, skipdefault;
@@ -515,22 +515,22 @@ calculate_path(void)
     machinepath = getpythonregpath(HKEY_LOCAL_MACHINE, skiphome);
     userpath = getpythonregpath(HKEY_CURRENT_USER, skiphome);
 #endif
-    /* We only use the default relative PYTHONPATH if we havent
+    /* We only use the default relative OMPYTHONPATH if we havent
        anything better to use! */
     skipdefault = envpath!=NULL || pythonhome!=NULL || \
                   machinepath!=NULL || userpath!=NULL;
 #endif
 
     /* We need to construct a path from the following parts.
-       (1) the PYTHONPATH environment variable, if set;
+       (1) the OMPYTHONPATH environment variable, if set;
        (2) for Win32, the zip archive file path;
        (3) for Win32, the machinepath and userpath, if set;
-       (4) the PYTHONPATH config macro, with the leading "."
+       (4) the OMPYTHONPATH config macro, with the leading "."
            of each component replaced with pythonhome, if set;
        (5) the directory containing the executable (argv0_path).
        The length calculation calculates #4 first.
        Extra rules:
-       - If PYTHONHOME is set (in any way) item (3) is ignored.
+       - If OMPYTHONHOME is set (in any way) item (3) is ignored.
        - If registry values are used, (4) and (5) are ignored.
     */
 
@@ -538,7 +538,7 @@ calculate_path(void)
     if (pythonhome != NULL) {
         char *p;
         bufsz = 1;
-        for (p = PYTHONPATH; *p; p++) {
+        for (p = OMPYTHONPATH; *p; p++) {
             if (*p == DELIM)
                 bufsz++; /* number of DELIM plus one */
         }
@@ -546,7 +546,7 @@ calculate_path(void)
     }
     else
         bufsz = 0;
-    bufsz += strlen(PYTHONPATH) + 1;
+    bufsz += strlen(OMPYTHONPATH) + 1;
     bufsz += strlen(argv0_path) + 1;
 #ifdef MS_WINDOWS
     if (userpath)
@@ -561,14 +561,14 @@ calculate_path(void)
     module_search_path = buf = malloc(bufsz);
     if (buf == NULL) {
         /* We can't exit, so print a warning and limp along */
-        fprintf(stderr, "Can't malloc dynamic PYTHONPATH.\n");
+        fprintf(stderr, "Can't malloc dynamic OMPYTHONPATH.\n");
         if (envpath) {
-            fprintf(stderr, "Using environment $PYTHONPATH.\n");
+            fprintf(stderr, "Using environment $OMPYTHONPATH.\n");
             module_search_path = envpath;
         }
         else {
             fprintf(stderr, "Using default static path.\n");
-            module_search_path = PYTHONPATH;
+            module_search_path = OMPYTHONPATH;
         }
 #ifdef MS_WINDOWS
         if (machinepath)
@@ -604,18 +604,18 @@ calculate_path(void)
     }
     if (pythonhome == NULL) {
         if (!skipdefault) {
-            strcpy(buf, PYTHONPATH);
+            strcpy(buf, OMPYTHONPATH);
             buf = strchr(buf, '\0');
         }
     }
 #else
     if (pythonhome == NULL) {
-        strcpy(buf, PYTHONPATH);
+        strcpy(buf, OMPYTHONPATH);
         buf = strchr(buf, '\0');
     }
 #endif /* MS_WINDOWS */
     else {
-        char *p = PYTHONPATH;
+        char *p = OMPYTHONPATH;
         char *q;
         size_t n;
         for (;;) {

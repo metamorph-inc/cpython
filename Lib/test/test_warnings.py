@@ -843,7 +843,7 @@ class EnvironmentVariableTests(BaseTest):
 
     def test_single_warning(self):
         newenv = os.environ.copy()
-        newenv["PYTHONWARNINGS"] = "ignore::DeprecationWarning"
+        newenv["OMPYTHONWARNINGS"] = "ignore::DeprecationWarning"
         p = subprocess.Popen([sys.executable,
                 "-c", "import sys; sys.stdout.write(str(sys.warnoptions))"],
                 stdout=subprocess.PIPE, env=newenv)
@@ -852,7 +852,7 @@ class EnvironmentVariableTests(BaseTest):
 
     def test_comma_separated_warnings(self):
         newenv = os.environ.copy()
-        newenv["PYTHONWARNINGS"] = ("ignore::DeprecationWarning,"
+        newenv["OMPYTHONWARNINGS"] = ("ignore::DeprecationWarning,"
                                     "ignore::UnicodeWarning")
         p = subprocess.Popen([sys.executable,
                 "-c", "import sys; sys.stdout.write(str(sys.warnoptions))"],
@@ -863,7 +863,7 @@ class EnvironmentVariableTests(BaseTest):
 
     def test_envvar_and_command_line(self):
         newenv = os.environ.copy()
-        newenv["PYTHONWARNINGS"] = "ignore::DeprecationWarning"
+        newenv["OMPYTHONWARNINGS"] = "ignore::DeprecationWarning"
         p = subprocess.Popen([sys.executable, "-W" "ignore::UnicodeWarning",
                 "-c", "import sys; sys.stdout.write(str(sys.warnoptions))"],
                 stdout=subprocess.PIPE, env=newenv)

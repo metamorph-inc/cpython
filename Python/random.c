@@ -371,7 +371,7 @@ _PyRandom_Init(void)
 
     /*
       By default, hash randomization is disabled, and only
-      enabled if PYTHONHASHSEED is set to non-empty or if
+      enabled if OMPYTHONHASHSEED is set to non-empty or if
       "-R" is provided at the command line:
     */
     if (!Py_HashRandomizationFlag) {
@@ -382,10 +382,10 @@ _PyRandom_Init(void)
 
     /*
       Hash randomization is enabled.  Generate a per-process secret,
-      using PYTHONHASHSEED if provided.
+      using OMPYTHONHASHSEED if provided.
     */
 
-    env = Py_GETENV("PYTHONHASHSEED");
+    env = Py_GETENV("OMPYTHONHASHSEED");
     if (env && *env != '\0' && strcmp(env, "random") != 0) {
         char *endptr = env;
         unsigned long seed;
@@ -394,7 +394,7 @@ _PyRandom_Init(void)
             || seed > 4294967295UL
             || (errno == ERANGE && seed == ULONG_MAX))
         {
-            Py_FatalError("PYTHONHASHSEED must be \"random\" or an integer "
+            Py_FatalError("OMPYTHONHASHSEED must be \"random\" or an integer "
                           "in range [0; 4294967295]");
         }
         if (seed == 0) {

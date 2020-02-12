@@ -548,8 +548,8 @@ For instance, if the Python executable is found in
 :file:`/usr/local/lib/python{X.Y}`.  (In fact, this particular path is also
 the "fallback" location, used when no executable file named :file:`python` is
 found along :envvar:`PATH`.)  The user can override this behavior by setting the
-environment variable :envvar:`PYTHONHOME`, or insert additional directories in
-front of the standard path by setting :envvar:`PYTHONPATH`.
+environment variable :envvar:`OMPYTHONHOME`, or insert additional directories in
+front of the standard path by setting :envvar:`OMPYTHONPATH`.
 
 .. index::
    single: Py_SetProgramName()
@@ -560,7 +560,7 @@ front of the standard path by setting :envvar:`PYTHONPATH`.
 
 The embedding application can steer the search by calling
 ``Py_SetProgramName(file)`` *before* calling  :c:func:`Py_Initialize`.  Note that
-:envvar:`PYTHONHOME` still overrides this and :envvar:`PYTHONPATH` is still
+:envvar:`OMPYTHONHOME` still overrides this and :envvar:`OMPYTHONPATH` is still
 inserted in front of the standard path.  An application that requires total
 control has to provide its own implementation of :c:func:`Py_GetPath`,
 :c:func:`Py_GetPrefix`, :c:func:`Py_GetExecPrefix`, and

@@ -105,7 +105,7 @@ class Random(_random.Random):
 
         If a is not None or is an int or long, hash(a) is used instead.
         Hash values for some types are nondeterministic when the
-        PYTHONHASHSEED environment variable is enabled.
+        OMPYTHONHASHSEED environment variable is enabled.
         """
 
         if a is None:

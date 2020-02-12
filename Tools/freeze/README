@@ -56,7 +56,7 @@ One tricky issue: Freeze assumes that the Python interpreter and
 environment you're using to run Freeze is the same one that would be
 used to run your program, which should also be the same whose sources
 and installed files you will learn about in the next section.  In
-particular, your PYTHONPATH setting should be the same as for running
+particular, your OMPYTHONPATH setting should be the same as for running
 your program locally.  (Tip: if the program doesn't run when you type
 "python hello.py" there's little chance of getting the frozen version
 to run.)

@@ -4,7 +4,7 @@
 .. release date: 2010-04-10
 .. section: Core and Builtins
 
-Add environment variable $PYTHONWARNINGS.
+Add environment variable $OMPYTHONWARNINGS.
 
 ..
 

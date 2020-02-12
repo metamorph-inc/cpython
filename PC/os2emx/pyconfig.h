@@ -16,8 +16,8 @@
 #ifndef PREFIX
 #define PREFIX		""
 #endif
-#ifndef PYTHONPATH
-#define PYTHONPATH	"./Lib;./Lib/plat-" PLATFORM \
+#ifndef OMPYTHONPATH
+#define OMPYTHONPATH	"./Lib;./Lib/plat-" PLATFORM \
 			";./Lib/lib-dynload;./Lib/site-packages"
 #endif
 

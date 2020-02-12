@@ -95,11 +95,11 @@ while processing the rest as normal Python source.
 With respect to the environment variables for Python, I use the
 following setup:
 
-    Set PYTHONHOME=E:\Tau\Projects\Python;D:\DLLs
-    Set PYTHONPATH=.;E:\Tau\Projects\Python\Lib; \
+    Set OMPYTHONHOME=E:\Tau\Projects\Python;D:\DLLs
+    Set OMPYTHONPATH=.;E:\Tau\Projects\Python\Lib; \
                      E:\Tau\Projects\Python\Lib\plat-win
 
-The EXEC_PREFIX (optional second pathspec on PYTHONHOME) is where
+The EXEC_PREFIX (optional second pathspec on OMPYTHONHOME) is where
 you put any Python extension DLLs you may create/obtain.  There
 are none provided with this release.
 

@@ -157,7 +157,7 @@ with responding to these concerns.
 
 You can re-enable display of :exc:`DeprecationWarning` messages by
 running Python with the :option:`-Wdefault <-W>` (short form:
-:option:`-Wd <-W>`) switch, or by setting the :envvar:`PYTHONWARNINGS`
+:option:`-Wd <-W>`) switch, or by setting the :envvar:`OMPYTHONWARNINGS`
 environment variable to ``"default"`` (or ``"d"``) before running
 Python.  Python code can also re-enable them
 by calling ``warnings.simplefilter('default')``.
@@ -891,7 +891,7 @@ Some smaller changes made to the core Python language are:
 Interpreter Changes
 -------------------------------
 
-A new environment variable, :envvar:`PYTHONWARNINGS`,
+A new environment variable, :envvar:`OMPYTHONWARNINGS`,
 allows controlling warnings.  It should be set to a string
 containing warning settings, equivalent to those
 used with the :option:`-W` switch, separated by commas.
@@ -904,7 +904,7 @@ across operating systems and shells.)
 
 ::
 
-  export PYTHONWARNINGS=all,error:::Cookie:0
+  export OMPYTHONWARNINGS=all,error:::Cookie:0
 
 .. ======================================================================
 
@@ -2544,11 +2544,11 @@ Two new environment variables for debug mode
 --------------------------------------------
 
 In debug mode, the ``[xxx refs]`` statistic is not written by default, the
-:envvar:`PYTHONSHOWREFCOUNT` environment variable now must also be set.
+:envvar:`OMPYTHONSHOWREFCOUNT` environment variable now must also be set.
 (Contributed by Victor Stinner; :issue:`31733`.)
 
 When Python is compiled with ``COUNT_ALLOC`` defined, allocation counts are no
-longer dumped by default anymore: the :envvar:`PYTHONSHOWALLOCCOUNT` environment
+longer dumped by default anymore: the :envvar:`OMPYTHONSHOWALLOCCOUNT` environment
 variable must now also be set. Moreover, allocation counts are now dumped into
 stderr, rather than stdout. (Contributed by Victor Stinner; :issue:`31692`.)
 
@@ -2715,7 +2715,7 @@ services can't be modified to explicitly pass a more permissive SSL context
 when establishing the connection.
 
 For applications and services which can't be modified at all, the new
-``PYTHONHTTPSVERIFY`` environment variable may be set to ``0`` to revert an
+``OMPYTHONHTTPSVERIFY`` environment variable may be set to ``0`` to revert an
 entire Python process back to the default permissive behaviour of Python 2.7.8
 and earlier.
 

@@ -1670,7 +1670,7 @@ PyAPI_FUNC(int) _PyImport_IsScript(struct filedescr * fd)
  * there's some match, possibly case-insensitive.
  *
  * case_ok() is to return 1 if there's a case-sensitive match for
- * name, else 0.  case_ok() is also to return 1 if envar PYTHONCASEOK
+ * name, else 0.  case_ok() is also to return 1 if envar OMPYTHONCASEOK
  * exists.
  *
  * case_ok() is used to implement case-sensitive import semantics even
@@ -1714,7 +1714,7 @@ case_ok(char *buf, Py_ssize_t len, Py_ssize_t namelen, char *name)
     WIN32_FIND_DATA data;
     HANDLE h;
 
-    if (Py_GETENV("PYTHONCASEOK") != NULL)
+    if (Py_GETENV("OMPYTHONCASEOK") != NULL)
         return 1;
 
     h = FindFirstFile(buf, &data);
@@ -1732,7 +1732,7 @@ case_ok(char *buf, Py_ssize_t len, Py_ssize_t namelen, char *name)
     struct ffblk ffblk;
     int done;
 
-    if (Py_GETENV("PYTHONCASEOK") != NULL)
+    if (Py_GETENV("OMPYTHONCASEOK") != NULL)
         return 1;
 
     done = findfirst(buf, &ffblk, FA_ARCH|FA_RDONLY|FA_HIDDEN|FA_DIREC);
@@ -1751,7 +1751,7 @@ case_ok(char *buf, Py_ssize_t len, Py_ssize_t namelen, char *name)
     char dirname[MAXPATHLEN + 1];
     const int dirlen = len - namelen - 1; /* don't want trailing SEP */
 
-    if (Py_GETENV("PYTHONCASEOK") != NULL)
+    if (Py_GETENV("OMPYTHONCASEOK") != NULL)
         return 1;
 
     /* Copy the dir component into dirname; substitute "." if empty */
@@ -1793,7 +1793,7 @@ case_ok(char *buf, Py_ssize_t len, Py_ssize_t namelen, char *name)
     int canonlen;
     os_error *e;
 
-    if (Py_GETENV("PYTHONCASEOK") != NULL)
+    if (Py_GETENV("OMPYTHONCASEOK") != NULL)
         return 1;
 
     /* workaround:
@@ -1817,7 +1817,7 @@ case_ok(char *buf, Py_ssize_t len, Py_ssize_t namelen, char *name)
     FILEFINDBUF3 ffbuf;
     APIRET rc;
 
-    if (Py_GETENV("PYTHONCASEOK") != NULL)
+    if (Py_GETENV("OMPYTHONCASEOK") != NULL)
         return 1;
 
     rc = DosFindFirst(buf,

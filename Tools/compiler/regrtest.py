@@ -62,7 +62,7 @@ def compile_files(dir):
 def run_regrtest(lib_dir):
     test_dir = os.path.join(lib_dir, "test")
     os.chdir(test_dir)
-    os.system("PYTHONPATH=%s %s -v regrtest.py" % (lib_dir, sys.executable))
+    os.system("OMPYTHONPATH=%s %s -v regrtest.py" % (lib_dir, sys.executable))
 
 def cleanup(dir):
     os.system("rm -rf %s" % dir)

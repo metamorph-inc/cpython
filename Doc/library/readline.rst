@@ -271,7 +271,7 @@ The following example demonstrates how to use the :mod:`readline` module's
 history reading and writing functions to automatically load and save a history
 file named :file:`.pyhist` from the user's home directory.  The code below would
 normally be executed automatically during interactive sessions from the user's
-:envvar:`PYTHONSTARTUP` file. ::
+:envvar:`OMPYTHONSTARTUP` file. ::
 
    import os
    import readline

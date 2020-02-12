@@ -108,7 +108,7 @@ System variables, you need non-restricted access to your machine
 Another way of adding variables to your environment is using the :command:`set`
 command::
 
-    set PYTHONPATH=%PYTHONPATH%;C:\My_python_lib
+    set OMPYTHONPATH=%OMPYTHONPATH%;C:\My_python_lib
 
 To make this setting permanent, you could add the corresponding command line to
 your :file:`autoexec.bat`. :program:`msconfig` is a graphical interface to this
@@ -164,7 +164,7 @@ This is how :data:`sys.path` is populated on Windows:
 * An empty entry is added at the start, which corresponds to the current
   directory.
 
-* If the environment variable :envvar:`PYTHONPATH` exists, as described in
+* If the environment variable :envvar:`OMPYTHONPATH` exists, as described in
   :ref:`using-on-envvars`, its entries are added next.  Note that on Windows,
   paths in this variable must be separated by semicolons, to distinguish them
   from the colon used in drive identifiers (``C:\`` etc.).
@@ -176,14 +176,14 @@ This is how :data:`sys.path` is populated on Windows:
   to be added to :data:`sys.path`.  (Note that all known installers only use
   HKLM, so HKCU is typically empty.)
 
-* If the environment variable :envvar:`PYTHONHOME` is set, it is assumed as
+* If the environment variable :envvar:`OMPYTHONHOME` is set, it is assumed as
   "Python Home".  Otherwise, the path of the main Python executable is used to
   locate a "landmark file" (``Lib\os.py``) to deduce the "Python Home".  If a
   Python home is found, the relevant sub-directories added to :data:`sys.path`
   (``Lib``, ``plat-win``, etc) are based on that folder.  Otherwise, the core
   Python path is constructed from the PythonPath stored in the registry.
 
-* If the Python Home cannot be located, no :envvar:`PYTHONPATH` is specified in
+* If the Python Home cannot be located, no :envvar:`OMPYTHONPATH` is specified in
   the environment, and no registry entries can be found, a default path with
   relative entries is used (e.g. ``.\Lib;.\plat-win``, etc).
 

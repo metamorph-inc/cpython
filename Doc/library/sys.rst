@@ -99,7 +99,7 @@ always available.
    If this is true, Python won't try to write ``.pyc`` or ``.pyo`` files on the
    import of source modules.  This value is initially set to ``True`` or
    ``False`` depending on the :option:`-B` command line option and the
-   :envvar:`PYTHONDONTWRITEBYTECODE` environment variable, but you can set it
+   :envvar:`OMPYTHONDONTWRITEBYTECODE` environment variable, but you can set it
    yourself to control bytecode file generation.
 
    .. versionadded:: 2.6
@@ -685,7 +685,7 @@ always available.
    .. index:: triple: module; search; path
 
    A list of strings that specifies the search path for modules. Initialized from
-   the environment variable :envvar:`PYTHONPATH`, plus an installation-dependent
+   the environment variable :envvar:`OMPYTHONPATH`, plus an installation-dependent
    default.
 
    As initialized upon program startup, the first item of this list, ``path[0]``,
@@ -694,7 +694,7 @@ always available.
    is invoked interactively or if the script is read from standard input),
    ``path[0]`` is the empty string, which directs Python to search modules in the
    current directory first.  Notice that the script directory is inserted *before*
-   the entries inserted as a result of :envvar:`PYTHONPATH`.
+   the entries inserted as a result of :envvar:`OMPYTHONPATH`.
 
    A program is free to modify this list for its own purposes.
 

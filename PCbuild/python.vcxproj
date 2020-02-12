@@ -103,7 +103,7 @@
 @rem and using it outside of that context is ill-advised.
 @echo Running $(Configuration)^|$(Platform) interpreter...
 @setlocal
-@set PYTHONHOME=$(PySourcePath)
+@set OMPYTHONHOME=$(PySourcePath)
 $(_PGOPath)
 @"$(OutDir)python$(PyDebugExt).exe" %*
 </_Content>

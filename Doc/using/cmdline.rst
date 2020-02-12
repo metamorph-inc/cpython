@@ -207,7 +207,7 @@ Miscellaneous options
 .. cmdoption:: -B
 
    If given, Python won't try to write ``.pyc`` or ``.pyo`` files on the
-   import of source modules.  See also :envvar:`PYTHONDONTWRITEBYTECODE`.
+   import of source modules.  See also :envvar:`OMPYTHONDONTWRITEBYTECODE`.
 
    .. versionadded:: 2.6
 
@@ -215,13 +215,13 @@ Miscellaneous options
 .. cmdoption:: -d
 
    Turn on parser debugging output (for wizards only, depending on compilation
-   options).  See also :envvar:`PYTHONDEBUG`.
+   options).  See also :envvar:`OMPYTHONDEBUG`.
 
 
 .. cmdoption:: -E
 
    Ignore all :envvar:`PYTHON*` environment variables, e.g.
-   :envvar:`PYTHONPATH` and :envvar:`PYTHONHOME`, that might be set.
+   :envvar:`OMPYTHONPATH` and :envvar:`OMPYTHONHOME`, that might be set.
 
    .. versionadded:: 2.2
 
@@ -231,10 +231,10 @@ Miscellaneous options
    When a script is passed as first argument or the :option:`-c` option is used,
    enter interactive mode after executing the script or the command, even when
    :data:`sys.stdin` does not appear to be a terminal.  The
-   :envvar:`PYTHONSTARTUP` file is not read.
+   :envvar:`OMPYTHONSTARTUP` file is not read.
 
    This can be useful to inspect global variables or a stack trace when a script
-   raises an exception.  See also :envvar:`PYTHONINSPECT`.
+   raises an exception.  See also :envvar:`OMPYTHONINSPECT`.
 
 
 .. _using-on-optimizations:
@@ -242,7 +242,7 @@ Miscellaneous options
 
    Turn on basic optimizations.  This changes the filename extension for
    compiled (:term:`bytecode`) files from ``.pyc`` to ``.pyo``.  See also
-   :envvar:`PYTHONOPTIMIZE`.
+   :envvar:`OMPYTHONOPTIMIZE`.
 
 
 .. cmdoption:: -OO
@@ -289,7 +289,7 @@ Miscellaneous options
    implicitly relies on this non-guaranteed behavior that the randomization is
    disabled by default.
 
-   See also :envvar:`PYTHONHASHSEED`.
+   See also :envvar:`OMPYTHONHASHSEED`.
 
    .. versionadded:: 2.6.8
 
@@ -329,7 +329,7 @@ Miscellaneous options
    by this option.  To work around this, you will want to use
    :meth:`file.readline` inside a ``while 1:`` loop.
 
-   See also :envvar:`PYTHONUNBUFFERED`.
+   See also :envvar:`OMPYTHONUNBUFFERED`.
 
 
 .. cmdoption:: -v
@@ -338,7 +338,7 @@ Miscellaneous options
    (filename or built-in module) from which it is loaded.  When given twice
    (:option:`!-vv`), print a message for each file that is checked for when
    searching for a module.  Also provides information on module cleanup at exit.
-   See also :envvar:`PYTHONVERBOSE`.
+   See also :envvar:`OMPYTHONVERBOSE`.
 
 
 .. cmdoption:: -W arg
@@ -403,7 +403,7 @@ Miscellaneous options
 
       :pep:`230` -- Warning framework
 
-      :envvar:`PYTHONWARNINGS`
+      :envvar:`OMPYTHONWARNINGS`
 
 
 .. cmdoption:: -x
@@ -456,7 +456,7 @@ before the command-line switches other than -E.  It is customary that
 command-line switches override environmental variables where there is a
 conflict.
 
-.. envvar:: PYTHONHOME
+.. envvar:: OMPYTHONHOME
 
    Change the location of the standard Python libraries.  By default, the
    libraries are searched in :file:`{prefix}/lib/python{version}` and
@@ -464,33 +464,33 @@ conflict.
    :file:`{exec_prefix}` are installation-dependent directories, both defaulting
    to :file:`/usr/local`.
 
-   When :envvar:`PYTHONHOME` is set to a single directory, its value replaces
+   When :envvar:`OMPYTHONHOME` is set to a single directory, its value replaces
    both :file:`{prefix}` and :file:`{exec_prefix}`.  To specify different values
-   for these, set :envvar:`PYTHONHOME` to :file:`{prefix}:{exec_prefix}`.
+   for these, set :envvar:`OMPYTHONHOME` to :file:`{prefix}:{exec_prefix}`.
 
 
-.. envvar:: PYTHONPATH
+.. envvar:: OMPYTHONPATH
 
    Augment the default search path for module files.  The format is the same as
    the shell's :envvar:`PATH`: one or more directory pathnames separated by
    :data:`os.pathsep` (e.g. colons on Unix or semicolons on Windows).
    Non-existent directories are silently ignored.
 
-   In addition to normal directories, individual :envvar:`PYTHONPATH` entries
+   In addition to normal directories, individual :envvar:`OMPYTHONPATH` entries
    may refer to zipfiles containing pure Python modules (in either source or
    compiled form). Extension modules cannot be imported from zipfiles.
 
    The default search path is installation dependent, but generally begins with
-   :file:`{prefix}/lib/python{version}` (see :envvar:`PYTHONHOME` above).  It
-   is *always* appended to :envvar:`PYTHONPATH`.
+   :file:`{prefix}/lib/python{version}` (see :envvar:`OMPYTHONHOME` above).  It
+   is *always* appended to :envvar:`OMPYTHONPATH`.
 
    An additional directory will be inserted in the search path in front of
-   :envvar:`PYTHONPATH` as described above under
+   :envvar:`OMPYTHONPATH` as described above under
    :ref:`using-on-interface-options`. The search path can be manipulated from
    within a Python program as the variable :data:`sys.path`.
 
 
-.. envvar:: PYTHONSTARTUP
+.. envvar:: OMPYTHONSTARTUP
 
    If this is the name of a readable file, the Python commands in that file are
    executed before the first prompt is displayed in interactive mode.  The file
@@ -500,7 +500,7 @@ conflict.
    :data:`sys.ps2` in this file.
 
 
-.. envvar:: PYTHONY2K
+.. envvar:: OMPYTHONY2K
 
    Set this to a non-empty string to cause the :mod:`time` module to require
    dates specified as strings to include 4-digit years, otherwise 2-digit years
@@ -508,21 +508,21 @@ conflict.
    documentation.
 
 
-.. envvar:: PYTHONOPTIMIZE
+.. envvar:: OMPYTHONOPTIMIZE
 
    If this is set to a non-empty string it is equivalent to specifying the
    :option:`-O` option.  If set to an integer, it is equivalent to specifying
    :option:`-O` multiple times.
 
 
-.. envvar:: PYTHONDEBUG
+.. envvar:: OMPYTHONDEBUG
 
    If this is set to a non-empty string it is equivalent to specifying the
    :option:`-d` option.  If set to an integer, it is equivalent to specifying
    :option:`-d` multiple times.
 
 
-.. envvar:: PYTHONINSPECT
+.. envvar:: OMPYTHONINSPECT
 
    If this is set to a non-empty string it is equivalent to specifying the
    :option:`-i` option.
@@ -531,26 +531,26 @@ conflict.
    to force inspect mode on program termination.
 
 
-.. envvar:: PYTHONUNBUFFERED
+.. envvar:: OMPYTHONUNBUFFERED
 
    If this is set to a non-empty string it is equivalent to specifying the
    :option:`-u` option.
 
 
-.. envvar:: PYTHONVERBOSE
+.. envvar:: OMPYTHONVERBOSE
 
    If this is set to a non-empty string it is equivalent to specifying the
    :option:`-v` option.  If set to an integer, it is equivalent to specifying
    :option:`-v` multiple times.
 
 
-.. envvar:: PYTHONCASEOK
+.. envvar:: OMPYTHONCASEOK
 
    If this is set, Python ignores case in :keyword:`import` statements.  This
    only works on Windows, OS X, OS/2, and RiscOS.
 
 
-.. envvar:: PYTHONDONTWRITEBYTECODE
+.. envvar:: OMPYTHONDONTWRITEBYTECODE
 
    If this is set, Python won't try to write ``.pyc`` or ``.pyo`` files on the
    import of source modules.  This is equivalent to specifying the :option:`-B`
@@ -558,13 +558,13 @@ conflict.
 
    .. versionadded:: 2.6
 
-.. envvar:: PYTHONHASHSEED
+.. envvar:: OMPYTHONHASHSEED
 
    If this variable is set to ``random``, the effect is the same as specifying
    the :option:`-R` option: a random value is used to seed the hashes of str,
    bytes and datetime objects.
 
-   If :envvar:`PYTHONHASHSEED` is set to an integer value, it is used as a
+   If :envvar:`OMPYTHONHASHSEED` is set to an integer value, it is used as a
    fixed seed for generating the hash() of the types covered by the hash
    randomization.
 
@@ -579,7 +579,7 @@ conflict.
    .. versionadded:: 2.6.8
 
 
-.. envvar:: PYTHONIOENCODING
+.. envvar:: OMPYTHONIOENCODING
 
    Overrides the encoding used for stdin/stdout/stderr, in the syntax
    ``encodingname:errorhandler``.  The ``:errorhandler`` part is optional and
@@ -588,7 +588,7 @@ conflict.
    .. versionadded:: 2.6
 
 
-.. envvar:: PYTHONNOUSERSITE
+.. envvar:: OMPYTHONNOUSERSITE
 
    If this is set, Python won't add the :data:`user site-packages directory
    <site.USER_SITE>` to :data:`sys.path`.
@@ -600,7 +600,7 @@ conflict.
       :pep:`370` -- Per user site-packages directory
 
 
-.. envvar:: PYTHONUSERBASE
+.. envvar:: OMPYTHONUSERBASE
 
    Defines the :data:`user base directory <site.USER_BASE>`, which is used to
    compute the path of the :data:`user site-packages directory <site.USER_SITE>`
@@ -614,20 +614,20 @@ conflict.
       :pep:`370` -- Per user site-packages directory
 
 
-.. envvar:: PYTHONEXECUTABLE
+.. envvar:: OMPYTHONEXECUTABLE
 
    If this environment variable is set, ``sys.argv[0]`` will be set to its
    value instead of the value got through the C runtime.  Only works on
    Mac OS X.
 
-.. envvar:: PYTHONWARNINGS
+.. envvar:: OMPYTHONWARNINGS
 
    This is equivalent to the :option:`-W` option. If set to a comma
    separated string, it is equivalent to specifying :option:`-W` multiple
    times.
 
 
-.. envvar:: PYTHONHTTPSVERIFY
+.. envvar:: OMPYTHONHTTPSVERIFY
 
    If this environment variable is set specifically to ``0``, then it is
    equivalent to implicitly calling :func:`ssl._https_verify_certificates` with
@@ -644,32 +644,32 @@ Debug-mode variables
 Setting these variables only has an effect in a debug build of Python, that is,
 if Python was configured with the ``--with-pydebug`` build option.
 
-.. envvar:: PYTHONTHREADDEBUG
+.. envvar:: OMPYTHONTHREADDEBUG
 
    If set, Python will print threading debug info.
 
    .. versionchanged:: 2.6
       Previously, this variable was called ``THREADDEBUG``.
 
-.. envvar:: PYTHONDUMPREFS
+.. envvar:: OMPYTHONDUMPREFS
 
    If set, Python will dump objects and reference counts still alive after
    shutting down the interpreter.
 
 
-.. envvar:: PYTHONMALLOCSTATS
+.. envvar:: OMPYTHONMALLOCSTATS
 
    If set, Python will print memory allocation statistics every time a new
    object arena is created, and on shutdown.
 
-.. envvar:: PYTHONSHOWALLOCCOUNT
+.. envvar:: OMPYTHONSHOWALLOCCOUNT
 
    If set and Python was compiled with ``COUNT_ALLOCS`` defined, Python will
    dump allocations counts into stderr on shutdown.
 
    .. versionadded:: 2.7.15
 
-.. envvar:: PYTHONSHOWREFCOUNT
+.. envvar:: OMPYTHONSHOWREFCOUNT
 
    If set, Python will print the total reference count when the program
    finishes or after each statement in the interactive interpreter.

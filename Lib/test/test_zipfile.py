@@ -1810,7 +1810,7 @@ class CommandLineTest(unittest.TestCase):
             tf.printdir()
         expected = t.getvalue().encode('ascii', 'backslashreplace')
         out = self.zipfilecmd('-l', zip_name,
-                              PYTHONIOENCODING='ascii:backslashreplace')
+                              OMPYTHONIOENCODING='ascii:backslashreplace')
         self.assertEqual(out, expected)
 
     @skipUnless(zlib, "requires zlib")

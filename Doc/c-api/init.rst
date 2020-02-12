@@ -319,7 +319,7 @@ Process-wide parameters
 .. c:function:: void Py_SetPythonHome(char *home)
 
    Set the default "home" directory, that is, the location of the standard
-   Python libraries.  See :envvar:`PYTHONHOME` for the meaning of the
+   Python libraries.  See :envvar:`OMPYTHONHOME` for the meaning of the
    argument string.
 
    The argument should point to a zero-terminated character string in static
@@ -331,7 +331,7 @@ Process-wide parameters
 .. c:function:: char* Py_GetPythonHome()
 
    Return the default "home", that is, the value set by a previous call to
-   :c:func:`Py_SetPythonHome`, or the value of the :envvar:`PYTHONHOME`
+   :c:func:`Py_SetPythonHome`, or the value of the :envvar:`OMPYTHONHOME`
    environment variable if it is set.
 
 

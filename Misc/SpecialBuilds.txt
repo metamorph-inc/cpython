@@ -62,7 +62,7 @@ sys.getobjects(max[, type])
     call getobjects(); note that every object in the list is kept alive too,
     simply by virtue of being in the list.
 
-envvar PYTHONDUMPREFS
+envvar OMPYTHONDUMPREFS
     If this envvar exists, Py_Finalize() arranges to print a list of all
     still-live heap objects.  This is printed twice, in different formats,
     before and after Py_Finalize has cleaned up everything it can clean up.  The
@@ -138,7 +138,7 @@ Note that PYMALLOC_DEBUG requires WITH_PYMALLOC.
 
 Special gimmicks:
 
-envvar PYTHONMALLOCSTATS
+envvar OMPYTHONMALLOCSTATS
     If this envvar exists, a report of pymalloc summary statistics is printed to
     stderr whenever a new arena is allocated, and also by Py_Finalize().
 

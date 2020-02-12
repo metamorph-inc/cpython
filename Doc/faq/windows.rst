@@ -157,7 +157,7 @@ foo.py, foo.pyc) and if it finds it, will attempt to call ``initfoo()`` to
 initialize it.  You do not link your .exe with foo.lib, as that would cause
 Windows to require the DLL to be present.
 
-Note that the search path for foo.pyd is PYTHONPATH, not the same as the path
+Note that the search path for foo.pyd is OMPYTHONPATH, not the same as the path
 that Windows uses to search for foo.dll.  Also, foo.pyd need not be present to
 run your program, whereas if you linked your program with a dll, the dll is
 required.  Of course, foo.pyd is required if you want to say ``import foo``.  In

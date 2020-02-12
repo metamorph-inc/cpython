@@ -14,7 +14,7 @@ sys.settrace is still active and happens to call threading.currentThread().
 .. nonce: h73ZTm
 .. section: Core and Builtins
 
-properly report exceptions when the PYTHONSTARTUP file cannot be executed.
+properly report exceptions when the OMPYTHONSTARTUP file cannot be executed.
 
 ..
 

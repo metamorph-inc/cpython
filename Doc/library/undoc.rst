@@ -227,7 +227,7 @@ extensions.
    Those which are written in Python will be installed into the directory
    \file{lib-old/} installed as part of the standard library.  To use
    these, the directory must be added to \code{sys.path}, possibly using
-   \envvar{PYTHONPATH}.
+   \envvar{OMPYTHONPATH}.
 
 :mod:`timing`
    --- Measure time intervals to high resolution (use :func:`time.clock`

@@ -344,7 +344,7 @@ parameter to __import__() must be a valid module name.
 .. nonce: mZ5kSj
 .. section: Core and Builtins
 
-renamed THREADDEBUG envvar to PYTHONTHREADDEBUG.
+renamed THREADDEBUG envvar to OMPYTHONTHREADDEBUG.
 
 ..
 
@@ -353,7 +353,7 @@ renamed THREADDEBUG envvar to PYTHONTHREADDEBUG.
 .. nonce: OOgFXY
 .. section: Core and Builtins
 
-Add -B command line option, PYTHONDONTWRITEBYTECODE envvar and
+Add -B command line option, OMPYTHONDONTWRITEBYTECODE envvar and
 sys.dont_write_bytecode attribute. All these can be set to forbid Python to
 attempt to write compiled bytecode files.
 
@@ -896,7 +896,7 @@ complex(repr(x)) now works instead of raising a ValueError.
 .. section: Core and Builtins
 
 unset __file__ in __main__ after running a file. This makes the filenames
-the warning module prints much more sensible when a PYTHONSTARTUP file is
+the warning module prints much more sensible when a OMPYTHONSTARTUP file is
 used.
 
 ..
@@ -907,7 +907,7 @@ used.
 .. section: Core and Builtins
 
 Don't exit the interpreter on a SystemExit exception if the -i command line
-option or PYTHONINSPECT environment variable is given, but break into the
+option or OMPYTHONINSPECT environment variable is given, but break into the
 interactive interpreter just like on other exceptions or normal program
 exit.
 

@@ -488,7 +488,7 @@ def _create_unverified_context(protocol=PROTOCOL_TLS, cert_reqs=None,
 _create_stdlib_context = _create_unverified_context
 
 # PEP 493: Verify HTTPS by default, but allow envvar to override that
-_https_verify_envvar = 'PYTHONHTTPSVERIFY'
+_https_verify_envvar = 'OMPYTHONHTTPSVERIFY'
 
 def _get_https_context_factory():
     if not sys.flags.ignore_environment:

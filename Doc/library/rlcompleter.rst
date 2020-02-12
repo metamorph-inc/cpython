@@ -29,7 +29,7 @@ Example::
 
 The :mod:`rlcompleter` module is designed for use with Python's interactive
 mode.  A user can add the following lines to his or her initialization file
-(identified by the :envvar:`PYTHONSTARTUP` environment variable) to get
+(identified by the :envvar:`OMPYTHONSTARTUP` environment variable) to get
 automatic :kbd:`Tab` completion::
 
    try:

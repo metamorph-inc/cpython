@@ -1283,7 +1283,7 @@ class ContextTests(unittest.TestCase):
     def test__https_verify_certificates(self):
         # Unit test to check the contect factory mapping
         # The factories themselves are tested above
-        # This test will fail by design if run under PYTHONHTTPSVERIFY=0
+        # This test will fail by design if run under OMPYTHONHTTPSVERIFY=0
         # (as will various test_httplib tests)
 
         # Uses a fresh SSL module to avoid affecting the real one
@@ -1306,7 +1306,7 @@ class ContextTests(unittest.TestCase):
                       local_ssl.create_default_context)
 
     def test__https_verify_envvar(self):
-        # Unit test to check the PYTHONHTTPSVERIFY handling
+        # Unit test to check the OMPYTHONHTTPSVERIFY handling
         # Need to use a subprocess so it can still be run under -E
         https_is_verified = """import ssl, sys; \
             status = "Error: _create_default_https_context does not verify certs" \

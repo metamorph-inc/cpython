@@ -79,8 +79,8 @@ WIN32 is still required for the locale module.
 
 #define MS_WIN32 /* only support win32 and greater. */
 #define MS_WINDOWS
-#ifndef PYTHONPATH
-#	define PYTHONPATH ".\\DLLs;.\\lib;.\\lib\\plat-win;.\\lib\\lib-tk"
+#ifndef OMPYTHONPATH
+#	define OMPYTHONPATH ".\\DLLs;.\\lib;.\\lib\\plat-win;.\\lib\\lib-tk"
 #endif
 #define NT_THREADS
 #define WITH_THREAD

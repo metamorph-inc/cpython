@@ -13,7 +13,7 @@ this module will raise a RuntimeError.
 If you're running a script you want to profile, a simple way to get
 the common pairs is:
 
-$ PYTHONPATH=$PYTHONPATH:<python_srcdir>/Tools/scripts \
+$ OMPYTHONPATH=$OMPYTHONPATH:<python_srcdir>/Tools/scripts \
 ./python -i -O the_script.py --args
 ...
 > from analyze_dxp import *

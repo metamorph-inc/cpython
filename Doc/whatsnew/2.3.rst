@@ -1972,7 +1972,7 @@ figures are likely to be underestimates.
 
 Some of the more notable changes are:
 
-* If the :envvar:`PYTHONINSPECT` environment variable is set, the Python
+* If the :envvar:`OMPYTHONINSPECT` environment variable is set, the Python
   interpreter will enter the interactive prompt after running a Python program, as
   if Python had been invoked with the :option:`-i` option. The environment
   variable can be set before running the Python interpreter, or it can be set by

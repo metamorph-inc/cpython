@@ -860,7 +860,7 @@ class StdoutTests(unittest.TestCase):
         def get_message(encoding, *code):
             code = '\n'.join(code)
             env = os.environ.copy()
-            env['PYTHONIOENCODING'] = encoding
+            env['OMPYTHONIOENCODING'] = encoding
             process = subprocess.Popen([sys.executable, "-c", code],
                                        stdout=subprocess.PIPE, env=env)
             stdout, stderr = process.communicate()

@@ -506,10 +506,10 @@ Startup and code execution
 --------------------------
 
 Upon startup with the ``-s`` option, IDLE will execute the file referenced by
-the environment variables :envvar:`IDLESTARTUP` or :envvar:`PYTHONSTARTUP`.
+the environment variables :envvar:`IDLESTARTUP` or :envvar:`OMPYTHONSTARTUP`.
 IDLE first checks for ``IDLESTARTUP``; if ``IDLESTARTUP`` is present the file
 referenced is run.  If ``IDLESTARTUP`` is not present, IDLE checks for
-``PYTHONSTARTUP``.  Files referenced by these environment variables are
+``OMPYTHONSTARTUP``.  Files referenced by these environment variables are
 convenient places to store functions that are used frequently from the IDLE
 shell, or for executing import statements to import common modules.
 
@@ -533,7 +533,7 @@ Command line usage
    -h          print help message with legal combinations and exit
    -i          open shell window
    -r file     run file in shell window
-   -s          run $IDLESTARTUP or $PYTHONSTARTUP first, in shell window
+   -s          run $IDLESTARTUP or $OMPYTHONSTARTUP first, in shell window
    -t title    set title of shell window
    -           run stdin in shell (- must be last option before args)
 

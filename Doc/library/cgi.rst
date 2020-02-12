@@ -408,7 +408,7 @@ privileges.  It can only read (write, execute) files that everybody can read
 is usually the server's cgi-bin directory) and the set of environment variables
 is also different from what you get when you log in.  In particular, don't count
 on the shell's search path for executables (:envvar:`PATH`) or the Python module
-search path (:envvar:`PYTHONPATH`) to be set to anything interesting.
+search path (:envvar:`OMPYTHONPATH`) to be set to anything interesting.
 
 If you need to load modules from a directory which is not on Python's default
 module search path, you can change the path in your script, before importing

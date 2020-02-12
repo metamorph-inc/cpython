@@ -173,7 +173,7 @@ def _get_default_scheme():
     return os.name
 
 def _getuserbase():
-    env_base = os.environ.get("PYTHONUSERBASE", None)
+    env_base = os.environ.get("OMPYTHONUSERBASE", None)
     def joinuser(*args):
         return os.path.expanduser(os.path.join(*args))
 

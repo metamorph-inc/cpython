@@ -469,7 +469,7 @@ In Python 2.1, the :keyword:`import` statement will work to simulate case-sensit
 on case-insensitive platforms.  Python will now search for the first
 case-sensitive match by default, raising an :exc:`ImportError` if no such file
 is found, so ``import file`` will not import a module named ``FILE.PY``.
-Case-insensitive matching can be requested by setting the :envvar:`PYTHONCASEOK`
+Case-insensitive matching can be requested by setting the :envvar:`OMPYTHONCASEOK`
 environment variable before starting the Python interpreter.
 
 .. ======================================================================

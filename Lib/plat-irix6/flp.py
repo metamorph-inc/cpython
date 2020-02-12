@@ -165,7 +165,7 @@ def _pack_cache(forms):
     return altforms
 
 #
-# Internal: Locate form file (using PYTHONPATH) and open file
+# Internal: Locate form file (using OMPYTHONPATH) and open file
 #
 def _open_formfile(filename):
     return _open_formfile2(filename)[0]

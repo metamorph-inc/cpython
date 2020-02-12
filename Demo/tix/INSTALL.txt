@@ -19,11 +19,11 @@ Installing Tix.py
    for all three. We recommend tcl8.3.3 for this release of Tix.py.
 
 2a) If you have a distribution like ActiveState with a tcl subdirectory
-   of $PYTHONHOME, which contains the directories tcl8.3 and tk8.3,
+   of $OMPYTHONHOME, which contains the directories tcl8.3 and tk8.3,
    make a directory tix8.1 as well. Recursively copy the files from
-   <tix>/library to $PYTHONHOME/lib/tix8.1, and copy the dynamic library
+   <tix>/library to $OMPYTHONHOME/lib/tix8.1, and copy the dynamic library
    (tix8183.dll or libtix8.1.8.3.so) to the same place as the tcl dynamic
-   libraries  ($PYTHONHOME/Dlls or lib/python-2.1/lib-dynload). In this
+   libraries  ($OMPYTHONHOME/Dlls or lib/python-2.1/lib-dynload). In this
    case you are all installed, and you can skip to the end.
 
 2b) Modify Modules/Setup.dist and setup.py to change the version of the 

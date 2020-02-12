@@ -30,7 +30,7 @@ The module looks for the group database at the following locations
 (in order first to last):
   - ${ETC_GROUP}              (or %ETC_GROUP%)
   - ${ETC}/group              (or %ETC%/group)
-  - ${PYTHONHOME}/Etc/group   (or %PYTHONHOME%/Etc/group)
+  - ${OMPYTHONHOME}/Etc/group   (or %OMPYTHONHOME%/Etc/group)
 
 Classes
 -------
@@ -62,8 +62,8 @@ if os.environ.has_key('ETC_GROUP'):
     __group_path.append(os.environ['ETC_GROUP'])
 if os.environ.has_key('ETC'):
     __group_path.append('%s/group' % os.environ['ETC'])
-if os.environ.has_key('PYTHONHOME'):
-    __group_path.append('%s/Etc/group' % os.environ['PYTHONHOME'])
+if os.environ.has_key('OMPYTHONHOME'):
+    __group_path.append('%s/Etc/group' % os.environ['OMPYTHONHOME'])
 
 group_file = None
 for __i in __group_path:

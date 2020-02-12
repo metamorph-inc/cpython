@@ -953,8 +953,8 @@ inittime(void)
     if (m == NULL)
         return;
 
-    /* Accept 2-digit dates unless PYTHONY2K is set and non-empty */
-    p = Py_GETENV("PYTHONY2K");
+    /* Accept 2-digit dates unless OMPYTHONY2K is set and non-empty */
+    p = Py_GETENV("OMPYTHONY2K");
     PyModule_AddIntConstant(m, "accept2dyear", (long) (!p || !*p));
     /* If an embedded interpreter is shutdown and reinitialized the old
        moddict was not decrefed on shutdown and the next import of this

@@ -1439,7 +1439,7 @@ The following options imply -i and will open a shell:
   -r file    run script from file
 
   -d         enable the debugger
-  -s         run $IDLESTARTUP or $PYTHONSTARTUP before anything else
+  -s         run $IDLESTARTUP or $OMPYTHONSTARTUP before anything else
   -t title   set title of shell window
 
 A default edit window will be bypassed when -c, -r, or - are used.
@@ -1455,7 +1455,7 @@ idle foo.py foobar.py
         Edit the files, also open a shell if configured to start with shell.
 
 idle -est "Baz" foo.py
-        Run $IDLESTARTUP or $PYTHONSTARTUP, edit foo.py, and open a shell
+        Run $IDLESTARTUP or $OMPYTHONSTARTUP, edit foo.py, and open a shell
         window with the title "Baz".
 
 idle -c "import sys; print sys.argv" "foo"
@@ -1608,7 +1608,7 @@ def main():
         shell.open_debugger()
     if startup:
         filename = os.environ.get("IDLESTARTUP") or \
-                   os.environ.get("PYTHONSTARTUP")
+                   os.environ.get("OMPYTHONSTARTUP")
         if filename and os.path.isfile(filename):
             shell.interp.execfile(filename)
     if cmd or script:

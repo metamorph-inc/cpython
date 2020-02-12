@@ -191,7 +191,7 @@ class SysModuleTest(unittest.TestCase):
         # test that the unicode message is encoded to the stderr encoding
         check_exit_message(
             r'import sys; sys.exit(u"h\xe9")',
-            b"h\xe9", PYTHONIOENCODING='latin-1')
+            b"h\xe9", OMPYTHONIOENCODING='latin-1')
 
     def test_getdefaultencoding(self):
         if test.test_support.have_unicode:
@@ -426,7 +426,7 @@ class SysModuleTest(unittest.TestCase):
     def test_43581(self):
         # Can't use sys.stdout, as this is a cStringIO object when
         # the test runs under regrtest.
-        if not (os.environ.get('PYTHONIOENCODING') or
+        if not (os.environ.get('OMPYTHONIOENCODING') or
                 (sys.__stdout__.isatty() and sys.__stderr__.isatty())):
             self.skipTest('stdout/stderr encoding is not set')
         self.assertEqual(sys.__stdout__.encoding, sys.__stderr__.encoding)
@@ -453,13 +453,13 @@ class SysModuleTest(unittest.TestCase):
         # Test character: cent sign, encoded as 0x4A (ASCII J) in CP424,
         # not representable in ASCII.
 
-        env["PYTHONIOENCODING"] = "cp424"
+        env["OMPYTHONIOENCODING"] = "cp424"
         p = subprocess.Popen([sys.executable, "-c", 'print unichr(0xa2)'],
                              stdout = subprocess.PIPE, env=env)
         out = p.communicate()[0].strip()
         self.assertEqual(out, unichr(0xa2).encode("cp424"))
 
-        env["PYTHONIOENCODING"] = "ascii:replace"
+        env["OMPYTHONIOENCODING"] = "ascii:replace"
         p = subprocess.Popen([sys.executable, "-c", 'print unichr(0xa2)'],
                              stdout = subprocess.PIPE, env=env)
         out = p.communicate()[0].strip()

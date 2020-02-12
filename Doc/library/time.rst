@@ -41,9 +41,9 @@ An explanation of some terminology and conventions is in order.
   :class:`struct_time` (see below) generally require a 4-digit year.  For backward
   compatibility, 2-digit years are supported if the module variable
   ``accept2dyear`` is a non-zero integer; this variable is initialized to ``1``
-  unless the environment variable :envvar:`PYTHONY2K` is set to a non-empty
+  unless the environment variable :envvar:`OMPYTHONY2K` is set to a non-empty
   string, in which case it is initialized to ``0``.  Thus, you can set
-  :envvar:`PYTHONY2K` to a non-empty string in the environment to require 4-digit
+  :envvar:`OMPYTHONY2K` to a non-empty string in the environment to require 4-digit
   years for all year input.  When 2-digit years are accepted, they are converted
   according to the POSIX or X/Open standard: values 69-99 are mapped to 1969-1999,
   and values 0--68 are mapped to 2000--2068. Values 100--1899 are always illegal.
@@ -113,7 +113,7 @@ The module defines the following functions and data items:
 
    Boolean value indicating whether two-digit year values will be accepted.  This
    is true by default, but will be set to false if the environment variable
-   :envvar:`PYTHONY2K` has been set to a non-empty string.  It may also be modified
+   :envvar:`OMPYTHONY2K` has been set to a non-empty string.  It may also be modified
    at run time.
 
 

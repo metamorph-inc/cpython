@@ -81,7 +81,7 @@ Bookkeeping functions:
 
    If *a* is not ``None`` or an :class:`int` or a :class:`long`, then
    ``hash(a)`` is used instead.  Note that the hash values for some types
-   are nondeterministic when :envvar:`PYTHONHASHSEED` is enabled.
+   are nondeterministic when :envvar:`OMPYTHONHASHSEED` is enabled.
 
    .. versionchanged:: 2.4
       formerly, operating system resources were not used.

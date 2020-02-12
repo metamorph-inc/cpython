@@ -63,9 +63,9 @@ HAVE_BZ2=	no
 HAVE_OPENSSL=	no
 
 # === install locations ===
-# default value of PYTHONHOME
+# default value of OMPYTHONHOME
 LIB_DIR=C:/Python26
-# default is to have everything in or under PYTHONHOME
+# default is to have everything in or under OMPYTHONHOME
 EXE_DIR=$(LIB_DIR)
 DLL_DIR=$(EXE_DIR)
 

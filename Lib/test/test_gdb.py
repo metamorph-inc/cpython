@@ -216,7 +216,7 @@ class DebuggerTests(unittest.TestCase):
             args += [script]
 
         # Use "args" to invoke gdb, capturing stdout, stderr:
-        out, err = run_gdb(*args, PYTHONHASHSEED='0')
+        out, err = run_gdb(*args, OMPYTHONHASHSEED='0')
 
         for line in err.splitlines():
             print >>sys.stderr, line

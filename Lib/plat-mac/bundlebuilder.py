@@ -306,16 +306,16 @@ if %(optimize)s:
 
 sys.argv.insert(1, mainprogram)
 if %(standalone)s or %(semi_standalone)s:
-    os.environ["PYTHONPATH"] = resdir
+    os.environ["OMPYTHONPATH"] = resdir
     if %(standalone)s:
-        os.environ["PYTHONHOME"] = resdir
+        os.environ["OMPYTHONHOME"] = resdir
 else:
-    pypath = os.getenv("PYTHONPATH", "")
+    pypath = os.getenv("OMPYTHONPATH", "")
     if pypath:
         pypath = ":" + pypath
-    os.environ["PYTHONPATH"] = resdir + pypath
+    os.environ["OMPYTHONPATH"] = resdir + pypath
 
-os.environ["PYTHONEXECUTABLE"] = executable
+os.environ["OMPYTHONEXECUTABLE"] = executable
 os.environ["DYLD_LIBRARY_PATH"] = libdir
 os.environ["DYLD_FRAMEWORK_PATH"] = libdir
 os.execve(executable, sys.argv, os.environ)

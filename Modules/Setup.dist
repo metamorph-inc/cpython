@@ -67,7 +67,7 @@
 # to ftp sources from elsewhere.
 
 
-# Some special rules to define PYTHONPATH.
+# Some special rules to define OMPYTHONPATH.
 # Edit the definitions below to indicate which options you are using.
 # Don't add any whitespace or comments!
 
@@ -101,8 +101,8 @@ TKPATH=:lib-tk
 # Path component for old modules.
 OLDPATH=:lib-old
 
-COREPYTHONPATH=$(DESTPATH)$(SITEPATH)$(TESTPATH)$(MACHDEPPATH)$(EXTRAMACHDEPPATH)$(TKPATH)$(OLDPATH)
-PYTHONPATH=$(COREPYTHONPATH)
+COREOMPYTHONPATH=$(DESTPATH)$(SITEPATH)$(TESTPATH)$(MACHDEPPATH)$(EXTRAMACHDEPPATH)$(TKPATH)$(OLDPATH)
+OMPYTHONPATH=$(COREOMPYTHONPATH)
 
 
 # The modules listed here can't be built as shared libraries for

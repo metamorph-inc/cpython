@@ -70,7 +70,7 @@ The Interactive Startup File
 
 When you use Python interactively, it is frequently handy to have some standard
 commands executed every time the interpreter is started.  You can do this by
-setting an environment variable named :envvar:`PYTHONSTARTUP` to the name of a
+setting an environment variable named :envvar:`OMPYTHONSTARTUP` to the name of a
 file containing your start-up commands.  This is similar to the :file:`.profile`
 feature of the Unix shells.
 
@@ -89,7 +89,7 @@ If you want to use the startup file in a script, you must do this explicitly
 in the script::
 
    import os
-   filename = os.environ.get('PYTHONSTARTUP')
+   filename = os.environ.get('OMPYTHONSTARTUP')
    if filename and os.path.isfile(filename):
        with open(filename) as fobj:
            startup_file = fobj.read()

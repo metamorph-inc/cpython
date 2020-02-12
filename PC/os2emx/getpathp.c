@@ -11,9 +11,9 @@
    * Python always adds an empty entry at the start, which corresponds
      to the current directory.
 
-   * If the PYTHONPATH env. var. exists, its entries are added next.
+   * If the OMPYTHONPATH env. var. exists, its entries are added next.
 
-   * We attempt to locate the "Python Home" - if the PYTHONHOME env var
+   * We attempt to locate the "Python Home" - if the OMPYTHONHOME env var
      is set, we believe it.  Otherwise, we use the path of our host .EXE's
      to try and locate our "landmark" (lib\\os.py) and deduce our home.
      - If we DO have a Python Home: The relevant sub-directories (Lib,
@@ -22,7 +22,7 @@
        loaded from the registry.  This is the main PythonPath key,
        and both HKLM and HKCU are combined to form the path)
 
-   * Iff - we can not locate the Python Home, and have not had a PYTHONPATH
+   * Iff - we can not locate the Python Home, and have not had a OMPYTHONPATH
      specified (ie, we have _nothing_ we can assume is a good path), a
      default path with relative entries is used (eg. .\Lib;.\plat-win, etc)
 
@@ -262,7 +262,7 @@ calculate_path(void)
     char *buf;
     size_t bufsz;
     char *pythonhome = Py_GetPythonHome();
-    char *envpath = getenv("PYTHONPATH");
+    char *envpath = getenv("OMPYTHONPATH");
     char zip_path[MAXPATHLEN+1];
     size_t len;
 
@@ -296,9 +296,9 @@ calculate_path(void)
     }
 
     /* We need to construct a path from the following parts.
-     * (1) the PYTHONPATH environment variable, if set;
+     * (1) the OMPYTHONPATH environment variable, if set;
      * (2) the zip archive file path;
-     * (3) the PYTHONPATH config macro, with the leading "."
+     * (3) the OMPYTHONPATH config macro, with the leading "."
      *     of each component replaced with pythonhome, if set;
      * (4) the directory containing the executable (argv0_path).
      * The length calculation calculates #3 first.
@@ -308,7 +308,7 @@ calculate_path(void)
     if (pythonhome != NULL) {
         char *p;
         bufsz = 1;
-        for (p = PYTHONPATH; *p; p++) {
+        for (p = OMPYTHONPATH; *p; p++) {
             if (*p == DELIM)
                 bufsz++; /* number of DELIM plus one */
         }
@@ -316,7 +316,7 @@ calculate_path(void)
     }
     else
         bufsz = 0;
-    bufsz += strlen(PYTHONPATH) + 1;
+    bufsz += strlen(OMPYTHONPATH) + 1;
     bufsz += strlen(argv0_path) + 1;
     bufsz += strlen(zip_path) + 1;
     if (envpath != NULL)
@@ -325,14 +325,14 @@ calculate_path(void)
     module_search_path = buf = malloc(bufsz);
     if (buf == NULL) {
         /* We can't exit, so print a warning and limp along */
-        fprintf(stderr, "Can't malloc dynamic PYTHONPATH.\n");
+        fprintf(stderr, "Can't malloc dynamic OMPYTHONPATH.\n");
         if (envpath) {
-            fprintf(stderr, "Using environment $PYTHONPATH.\n");
+            fprintf(stderr, "Using environment $OMPYTHONPATH.\n");
             module_search_path = envpath;
         }
         else {
             fprintf(stderr, "Using default static path.\n");
-            module_search_path = PYTHONPATH;
+            module_search_path = OMPYTHONPATH;
         }
         return;
     }
@@ -349,11 +349,11 @@ calculate_path(void)
     }
 
     if (pythonhome == NULL) {
-        strcpy(buf, PYTHONPATH);
+        strcpy(buf, OMPYTHONPATH);
         buf = strchr(buf, '\0');
     }
     else {
-        char *p = PYTHONPATH;
+        char *p = OMPYTHONPATH;
         char *q;
         size_t n;
         for (;;) {

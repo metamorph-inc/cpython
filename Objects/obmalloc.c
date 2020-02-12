@@ -568,7 +568,7 @@ new_arena(void)
     int err;
 
 #ifdef PYMALLOC_DEBUG
-    if (Py_GETENV("PYTHONMALLOCSTATS"))
+    if (Py_GETENV("OMPYTHONMALLOCSTATS"))
         _PyObject_DebugMallocStats();
 #endif
     if (unused_arena_objects == NULL) {

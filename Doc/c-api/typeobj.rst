@@ -49,7 +49,7 @@ type objects) *must* have the :attr:`ob_size` field.
    into a doubly-linked list of *all* live objects on the heap.  This could be used
    for various debugging purposes; currently the only use is to print the objects
    that are still alive at the end of a run when the environment variable
-   :envvar:`PYTHONDUMPREFS` is set.
+   :envvar:`OMPYTHONDUMPREFS` is set.
 
    These fields are not inherited by subtypes.
 
@@ -1101,7 +1101,7 @@ The next fields, up to and including :c:member:`~PyTypeObject.tp_weaklist`, only
 The remaining fields are only defined if the feature test macro
 :const:`COUNT_ALLOCS` is defined, and are for internal use only. They are
 documented here for completeness.  None of these fields are inherited by
-subtypes. See the :envvar:`PYTHONSHOWALLOCCOUNT` environment variable.
+subtypes. See the :envvar:`OMPYTHONSHOWALLOCCOUNT` environment variable.
 
 
 .. c:member:: Py_ssize_t PyTypeObject.tp_allocs

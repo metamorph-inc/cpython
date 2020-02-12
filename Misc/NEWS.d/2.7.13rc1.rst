@@ -45,7 +45,7 @@ C-inherited Cython classes).
 .. section: Core and Builtins
 
 Extra slash no longer added to sys.path components in case of empty
-compile-time PYTHONPATH components.
+compile-time OMPYTHONPATH components.
 
 ..
 

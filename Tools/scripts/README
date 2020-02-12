@@ -11,7 +11,7 @@ checkappend.py		Search for multi-argument .append() calls
 checkpyc.py		Check presence and validity of ".pyc" files
 classfix.py		Convert old class syntax to new
 cleanfuture.py		Fix reduntant Python __future__ statements
-combinerefs.py		A helper for analyzing PYTHONDUMPREFS output.
+combinerefs.py		A helper for analyzing OMPYTHONDUMPREFS output.
 copytime.py		Copy one file's atime and mtime to another
 crlf.py			Change CRLF line endings to LF (Windows to Unix)
 cvsfiles.py		Print a list of files that are under CVS

@@ -155,8 +155,8 @@ rather of returning a bogus result when an integer is passed as a separator.
 .. nonce: pIf17N
 .. section: Core and Builtins
 
-Add a new PYTHONSHOWREFCOUNT environment variable. In debug mode, Python now
-only print the total reference count if PYTHONSHOWREFCOUNT is set.
+Add a new OMPYTHONSHOWREFCOUNT environment variable. In debug mode, Python now
+only print the total reference count if OMPYTHONSHOWREFCOUNT is set.
 
 ..
 
@@ -165,8 +165,8 @@ only print the total reference count if PYTHONSHOWREFCOUNT is set.
 .. nonce: 5-bpdk
 .. section: Core and Builtins
 
-Add a new PYTHONSHOWALLOCCOUNT environment variable. When Python is compiled
-with COUNT_ALLOCS, PYTHONSHOWALLOCCOUNT now has to be set to dump allocation
+Add a new OMPYTHONSHOWALLOCCOUNT environment variable. When Python is compiled
+with COUNT_ALLOCS, OMPYTHONSHOWALLOCCOUNT now has to be set to dump allocation
 counts into stderr on shutdown. Moreover, allocations statistics are now
 dumped into stderr rather than stdout.
 

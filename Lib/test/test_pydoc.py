@@ -452,7 +452,7 @@ class PydocImportTest(PydocBaseTest):
         for importstring, expectedinmsg in testpairs:
             with open(sourcefn, 'w') as f:
                 f.write("import {}\n".format(importstring))
-            result = run_pydoc(modname, PYTHONPATH=TESTFN)
+            result = run_pydoc(modname, OMPYTHONPATH=TESTFN)
             expected = badimport_pattern % (modname, expectedinmsg)
             self.assertEqual(expected, result)
 

@@ -3161,7 +3161,7 @@ Core and builtins
   in a debug build, a segfault occurred reliably very soon after).
   This has been repaired.
 
-- Compiler flags set in PYTHONSTARTUP are now active in __main__.
+- Compiler flags set in OMPYTHONSTARTUP are now active in __main__.
 
 - Added two built-in types, set() and frozenset().
 
@@ -3719,7 +3719,7 @@ C API
 Windows
 -------
 
-- The tempfile module could do insane imports on Windows if PYTHONCASEOK
+- The tempfile module could do insane imports on Windows if OMPYTHONCASEOK
   was set, making temp file creation impossible.  Repaired.
 
 - Add a patch to workaround pthread_sigmask() bugs in Cygwin.
@@ -3941,7 +3941,7 @@ What's New in Python 2.3 beta 2?
 Core and builtins
 -----------------
 
-- A program can now set the environment variable PYTHONINSPECT to some
+- A program can now set the environment variable OMPYTHONINSPECT to some
   string value in Python, and cause the interpreter to enter the
   interactive prompt at program exit, as if Python had been invoked
   with the -i option.
@@ -4425,7 +4425,7 @@ Library
 Tools/Demos
 -----------
 
-- New script combinerefs.py helps analyze new PYTHONDUMPREFS output.
+- New script combinerefs.py helps analyze new OMPYTHONDUMPREFS output.
   See the module docstring for details.
 
 Build
@@ -5473,7 +5473,7 @@ Library
   whatever locale is explicitly set by the user, is preserved.  If you
   want repr() of 8-bit strings in your preferred encoding to preserve
   all printable characters of that encoding, you have to add the
-  following code to your $PYTHONSTARTUP file or to your application's
+  following code to your $OMPYTHONSTARTUP file or to your application's
   main():
 
     import locale
@@ -7138,7 +7138,7 @@ Core
   all environment variables, or at least those that are specifically
   significant to Python.  Usually those have a name starting with
   "PYTHON".  This was used to fix a problem where the tests fail if
-  the user happens to have PYTHONHOME or PYTHONPATH pointing to an
+  the user happens to have OMPYTHONHOME or OMPYTHONPATH pointing to an
   older distribution.
 
 Library
@@ -7856,7 +7856,7 @@ Windows changes
   for full details, especially the "Current Lower-Left Semantics" section.
   The new Windows import rules are simpler than before:
 
-  A. If the PYTHONCASEOK environment variable exists, same as
+  A. If the OMPYTHONCASEOK environment variable exists, same as
      before:  silently accept the first case-insensitive match of any
      kind; raise ImportError if none found.
 
@@ -8483,7 +8483,7 @@ Internals
   which is called when the interpreter starts up to determine where
   the standard library is installed.  These vulnerabilities affect all
   previous versions of Python and can be exploited by setting very
-  long values for PYTHONHOME or argv[0].  The risk is greatest for a
+  long values for OMPYTHONHOME or argv[0].  The risk is greatest for a
   setuid Python script, although use of the wrapper in
   Misc/setuid-prog.c will eliminate the vulnerability.
 
@@ -8814,7 +8814,7 @@ with Python 2.0; these extensions will have to be rebuilt for Python
 
 - On Windows, attempting to import a third party extension built for
 Python 1.5.x or 1.6 results in an immediate crash; there's not much we
-can do about this.  Check your PYTHONPATH environment variable!
+can do about this.  Check your OMPYTHONPATH environment variable!
 
 - Python bytecode files (*.pyc and *.pyo) are not compatible between
 releases.
@@ -9300,7 +9300,7 @@ Python 1.6; these extensions will have to be rebuilt for Python 1.6.
 
 - On Windows, attempting to import a third party extension built for
 Python 1.5.x results in an immediate crash; there's not much we can do
-about this.  Check your PYTHONPATH environment variable!
+about this.  Check your OMPYTHONPATH environment variable!
 
 
 Overview of Changes since 1.5.2
@@ -11152,7 +11152,7 @@ always be the .pyc/.pyo file).
 - Don't exit with a fatal error during initialization when there's a
 problem with the exceptions.py module.
 
-- New environment variable PYTHONOPTIMIZE can be used to set -O.
+- New environment variable OMPYTHONOPTIMIZE can be used to set -O.
 
 - New version of python-mode.el for Emacs.
 
@@ -11236,7 +11236,7 @@ Generic OS Services
 -------------------
 
 - Module time: Y2K robustness.  2-digit year acceptance depends on
-value of time.accept2dyear, initialized from env var PYTHONY2K,
+value of time.accept2dyear, initialized from env var OMPYTHONY2K,
 default 0.  Years 00-68 mean 2000-2068, while 69-99 mean 1969-1999
 (POSIX or X/Open recommendation).
 
@@ -11891,7 +11891,7 @@ many error checking bugs.
 object and extensions (e.g. nb_add).
 
 - The code that initializes sys.path now calls Py_GetPythonHome()
-instead of getenv("PYTHONHOME").  This, together with the new API
+instead of getenv("OMPYTHONHOME").  This, together with the new API
 Py_SetPythonHome(), makes it easier for embedding applications to
 change the notion of Python's "home" directory (where the libraries
 etc. are sought).
@@ -12241,7 +12241,7 @@ PyImport_ExecCodeModule() by adding an extra parameter to pass it the
 true file.
 
 - New functions Py_GetPythonHome() and Py_SetPythonHome(), intended to
-allow embedded applications to force a different value for PYTHONHOME.
+allow embedded applications to force a different value for OMPYTHONHOME.
 
 - New global flag Py_FrozenFlag is set when this is a "frozen" Python
 binary; it suppresses warnings about not being able to find the
@@ -12288,7 +12288,7 @@ module name as specified in the import statement.  This is an
 experimental feature -- if it turns out to break in too many
 situations, it will be removed (or disabled by default) in the future.
 It can be disabled on a per-case basis by setting the environment
-variable PYTHONCASEOK (to any value).
+variable OMPYTHONCASEOK (to any value).
 
 
 ======================================================================
@@ -12480,7 +12480,7 @@ shared libraries for both.
 
 - Fixed a bug (broken use of the syntax table) in the old "regexpr.c".
 
-- In frozenmain.c, stdin is made unbuffered too when PYTHONUNBUFFERED
+- In frozenmain.c, stdin is made unbuffered too when OMPYTHONUNBUFFERED
 is set.
 
 - Provide default blocksize for retrbinary in ftplib.py (Skip
@@ -13218,7 +13218,7 @@ again.
 - The default module search path is now much saner.  Both on Unix and
 Windows, it is essentially derived from the path to the executable
 (which can be overridden by setting the environment variable
-$PYTHONHOME).  The value of $PYTHONPATH on Windows is now inserted in
+$OMPYTHONHOME).  The value of $OMPYTHONPATH on Windows is now inserted in
 front of the default path, like in Unix (instead of overriding the
 default path).  On Windows, the directory containing the executable is
 added to the end of the path.
@@ -14377,7 +14377,7 @@ tests.
 - Added Modules/Setup.local file, which is processed after Setup.
 
 - Corrected bug in toplevel Makefile.in -- execution of regen script
-would not use the right PATH and PYTHONPATH.
+would not use the right PATH and OMPYTHONPATH.
 
 - Various and sundry NeXT configuration changes (sigh).
 
@@ -16395,7 +16395,7 @@ Marcel van der Peijl!  This requires fewer compatibility hacks in
 posixmodule.c.  The executable is not yet available but will be soon
 (check the mailing list).
 
-* The default PYTHONPATH has changed.
+* The default OMPYTHONPATH has changed.
 
 
 Changes for developers of extension modules
@@ -16514,7 +16514,7 @@ Changes to the interpreter interface
 ------------------------------------
 
 On popular demand, there's finally a "profile" feature for interactive
-use of the interpreter.  If the environment variable $PYTHONSTARTUP is
+use of the interpreter.  If the environment variable $OMPYTHONSTARTUP is
 set to the name of an existing file, Python statements in this file
 are executed when the interpreter is started in interactive mode.
 
@@ -16815,7 +16815,7 @@ SEQUENT
 Changes to the interpreter interface
 ------------------------------------
 
-The interpretation of $PYTHONPATH in the environment is different: it
+The interpretation of $OMPYTHONPATH in the environment is different: it
 is inserted in front of the default path instead of overriding it
 
 

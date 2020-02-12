@@ -33,7 +33,7 @@ The module looks for the password database at the following locations
 (in order first to last):
   - ${ETC_PASSWD}             (or %ETC_PASSWD%)
   - ${ETC}/passwd             (or %ETC%/passwd)
-  - ${PYTHONHOME}/Etc/passwd  (or %PYTHONHOME%/Etc/passwd)
+  - ${OMPYTHONHOME}/Etc/passwd  (or %OMPYTHONHOME%/Etc/passwd)
 
 Classes
 -------
@@ -65,8 +65,8 @@ if os.environ.has_key('ETC_PASSWD'):
     __passwd_path.append(os.environ['ETC_PASSWD'])
 if os.environ.has_key('ETC'):
     __passwd_path.append('%s/passwd' % os.environ['ETC'])
-if os.environ.has_key('PYTHONHOME'):
-    __passwd_path.append('%s/Etc/passwd' % os.environ['PYTHONHOME'])
+if os.environ.has_key('OMPYTHONHOME'):
+    __passwd_path.append('%s/Etc/passwd' % os.environ['OMPYTHONHOME'])
 
 passwd_file = None
 for __i in __passwd_path:

@@ -8,14 +8,14 @@ try:
     import os
 except:
     print """Could not import the standard "os" module.
-  Please check your PYTHONPATH environment variable."""
+  Please check your OMPYTHONPATH environment variable."""
     sys.exit(1)
 
 try:
     import symbol
 except:
     print """Could not import the standard "symbol" module.  If this is
-  a PC, you should add the dos_8x3 directory to your PYTHONPATH."""
+  a PC, you should add the dos_8x3 directory to your OMPYTHONPATH."""
     sys.exit(1)
 
 import os
@@ -25,7 +25,7 @@ for dir in sys.path:
     if os.path.isfile(file):
         test = os.path.join(dir, "test")
         if os.path.isdir(test):
-            # Add the "test" directory to PYTHONPATH.
+            # Add the "test" directory to OMPYTHONPATH.
             sys.path = sys.path + [test]
 
 import regrtest # Standard Python tester.

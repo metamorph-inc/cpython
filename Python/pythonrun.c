@@ -75,13 +75,13 @@ int Py_DontWriteBytecodeFlag; /* Suppress writing bytecode files (*.py[co]) */
 int Py_UseClassExceptionsFlag = 1; /* Needed by bltinmodule.c: deprecated */
 int Py_FrozenFlag; /* Needed by getpath.c */
 int Py_UnicodeFlag = 0; /* Needed by compile.c */
-int Py_IgnoreEnvironmentFlag; /* e.g. PYTHONPATH, PYTHONHOME */
+int Py_IgnoreEnvironmentFlag; /* e.g. OMPYTHONPATH, OMPYTHONHOME */
 /* _XXX Py_QnewFlag should go away in 2.3.  It's true iff -Qnew is passed,
   on the command line, and is used in 2.2 by ceval.c to make all "/" divisions
   true divisions (which they will be in 2.3). */
 int _Py_QnewFlag = 0;
 int Py_NoUserSiteDirectory = 0; /* for -s and site.py */
-int Py_HashRandomizationFlag = 0; /* for -R and PYTHONHASHSEED */
+int Py_HashRandomizationFlag = 0; /* for -R and OMPYTHONHASHSEED */
 
 
 /* Hack to force loading of object files */
@@ -102,7 +102,7 @@ _PyDebug_PrintTotalRefs(void)
 #ifdef Py_REF_DEBUG
     Py_ssize_t total;
 
-    if (!Py_GETENV("PYTHONSHOWREFCOUNT")) {
+    if (!Py_GETENV("OMPYTHONSHOWREFCOUNT")) {
         return;
     }
 
@@ -185,17 +185,17 @@ Py_InitializeEx(int install_sigs)
         return;
     initialized = 1;
 
-    if ((p = Py_GETENV("PYTHONDEBUG")) && *p != '\0')
+    if ((p = Py_GETENV("OMPYTHONDEBUG")) && *p != '\0')
         Py_DebugFlag = add_flag(Py_DebugFlag, p);
-    if ((p = Py_GETENV("PYTHONVERBOSE")) && *p != '\0')
+    if ((p = Py_GETENV("OMPYTHONVERBOSE")) && *p != '\0')
         Py_VerboseFlag = add_flag(Py_VerboseFlag, p);
-    if ((p = Py_GETENV("PYTHONOPTIMIZE")) && *p != '\0')
+    if ((p = Py_GETENV("OMPYTHONOPTIMIZE")) && *p != '\0')
         Py_OptimizeFlag = add_flag(Py_OptimizeFlag, p);
-    if ((p = Py_GETENV("PYTHONDONTWRITEBYTECODE")) && *p != '\0')
+    if ((p = Py_GETENV("OMPYTHONDONTWRITEBYTECODE")) && *p != '\0')
         Py_DontWriteBytecodeFlag = add_flag(Py_DontWriteBytecodeFlag, p);
     /* The variable is only tested for existence here; _PyRandom_Init will
        check its value further. */
-    if ((p = Py_GETENV("PYTHONHASHSEED")) && *p != '\0')
+    if ((p = Py_GETENV("OMPYTHONHASHSEED")) && *p != '\0')
         Py_HashRandomizationFlag = add_flag(Py_HashRandomizationFlag, p);
 
     _PyRandom_Init();
@@ -290,7 +290,7 @@ Py_InitializeEx(int install_sigs)
     if (!Py_NoSiteFlag)
         initsite(); /* Module site */
 
-    if ((p = Py_GETENV("PYTHONIOENCODING")) && *p != '\0') {
+    if ((p = Py_GETENV("OMPYTHONIOENCODING")) && *p != '\0') {
         p = icodeset = codeset = strdup(p);
         free_codeset = 1;
         errors = strchr(p, ':');
@@ -337,7 +337,7 @@ Py_InitializeEx(int install_sigs)
         }
 
         /* Initialize Py_FileSystemDefaultEncoding from
-           locale even if PYTHONIOENCODING is set. */
+           locale even if OMPYTHONIOENCODING is set. */
         if (!Py_FileSystemDefaultEncoding) {
             Py_FileSystemDefaultEncoding = loc_codeset;
             if (!overridden)
@@ -488,7 +488,7 @@ Py_Finalize(void)
 
     /* Debugging stuff */
 #ifdef COUNT_ALLOCS
-    if (Py_GETENV("PYTHONSHOWALLOCCOUNT")) {
+    if (Py_GETENV("OMPYTHONSHOWALLOCCOUNT")) {
         dump_counts(stderr);
     }
 #endif
@@ -501,7 +501,7 @@ Py_Finalize(void)
      * Alas, a lot of stuff may still be alive now that will be cleaned
      * up later.
      */
-    if (Py_GETENV("PYTHONDUMPREFS"))
+    if (Py_GETENV("OMPYTHONDUMPREFS"))
         _Py_PrintReferences(stderr);
 #endif /* Py_TRACE_REFS */
 
@@ -557,11 +557,11 @@ Py_Finalize(void)
      * An address can be used to find the repr of the object, printed
      * above by _Py_PrintReferences.
      */
-    if (Py_GETENV("PYTHONDUMPREFS"))
+    if (Py_GETENV("OMPYTHONDUMPREFS"))
         _Py_PrintReferenceAddresses(stderr);
 #endif /* Py_TRACE_REFS */
 #ifdef PYMALLOC_DEBUG
-    if (Py_GETENV("PYTHONMALLOCSTATS"))
+    if (Py_GETENV("OMPYTHONMALLOCSTATS"))
         _PyObject_DebugMallocStats();
 #endif
 
@@ -703,7 +703,7 @@ Py_GetPythonHome(void)
 {
     char *home = default_home;
     if (home == NULL && !Py_IgnoreEnvironmentFlag)
-        home = Py_GETENV("PYTHONHOME");
+        home = Py_GETENV("OMPYTHONHOME");
     return home;
 }
 
@@ -1152,7 +1152,7 @@ handle_system_exit(void)
  done:
     /* Restore and clear the exception info, in order to properly decref
      * the exception, value, and traceback.      If we just exit instead,
-     * these leak, which confuses PYTHONDUMPREFS output, and may prevent
+     * these leak, which confuses OMPYTHONDUMPREFS output, and may prevent
      * some finalizers from running.
      */
     PyErr_Restore(exception, value, tb);

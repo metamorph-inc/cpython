@@ -29,15 +29,15 @@ os.chdir(os.path.expanduser('~/Documents'))
 # The flow of control is as follows:
 # 1. IDLE.app is launched which starts python running the IDLE script
 # 2. IDLE script exports
-#       PYTHONEXECUTABLE = .../IDLE.app/Contents/MacOS/Python{-32}
+#       OMPYTHONEXECUTABLE = .../IDLE.app/Contents/MacOS/Python{-32}
 #           (the symlink to the framework python)
 # 3. IDLE script alters sys.argv and uses os.execve to replace itself with
 #       idlemain.py running under the symlinked python.
 #       This is the magic step.
-# 4. During interpreter initialization, because PYTHONEXECUTABLE is defined,
+# 4. During interpreter initialization, because OMPYTHONEXECUTABLE is defined,
 #    sys.executable may get set to an unuseful value.
 #
-# (Note that the IDLE script and the setting of PYTHONEXECUTABLE is
+# (Note that the IDLE script and the setting of OMPYTHONEXECUTABLE is
 #  generated automatically by bundlebuilder in the Python 2.x build.
 #  Also, IDLE invoked via command line, i.e. bin/idle, bypasses all of
 #  this.)
@@ -46,8 +46,8 @@ os.chdir(os.path.expanduser('~/Documents'))
 
 # Reset sys.executable to its normal value, the actual path of
 # the interpreter in the framework, by following the symlink
-# exported in PYTHONEXECUTABLE.
-pyex = os.environ['PYTHONEXECUTABLE']
+# exported in OMPYTHONEXECUTABLE.
+pyex = os.environ['OMPYTHONEXECUTABLE']
 sys.executable = os.path.join(sys.prefix, 'bin', 'python%d.%d'%(sys.version_info[:2]))
 
 # Remove any sys.path entries for the Resources dir in the IDLE.app bundle.
@@ -56,9 +56,9 @@ if p[2].startswith('/Contents/MacOS/Python'):
     sys.path = [value for value in sys.path if
             value.partition('.app') != (p[0], p[1], '/Contents/Resources')]
 
-# Unexport PYTHONEXECUTABLE so that the other Python processes started
+# Unexport OMPYTHONEXECUTABLE so that the other Python processes started
 # by IDLE have a normal sys.executable.
-del os.environ['PYTHONEXECUTABLE']
+del os.environ['OMPYTHONEXECUTABLE']
 
 # Look for the -psn argument that the launcher adds and remove it, it will
 # only confuse the IDLE startup code.

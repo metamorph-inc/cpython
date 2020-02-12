@@ -82,7 +82,7 @@ class TestPgen2Caching(support.TestCase):
             # Generate a new pickle file in a subprocess with a most likely
             # different hash randomization seed.
             sub_env = dict(os.environ)
-            sub_env['PYTHONHASHSEED'] = 'random'
+            sub_env['OMPYTHONHASHSEED'] = 'random'
             subprocess.check_call(
                     [sys.executable, '-c', """
 from lib2to3.pgen2 import driver as pgen2_driver

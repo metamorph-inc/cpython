@@ -35,7 +35,7 @@ TO DO:
 - don't open second class browser on same module (nor second path browser)
 - unify class and path browsers
 - Need to define a standard way whereby one can determine one is running
-  inside IDLE (needed for Tk mainloop, also handy for $PYTHONSTARTUP)
+  inside IDLE (needed for Tk mainloop, also handy for $OMPYTHONSTARTUP)
 - Add more utility methods for use by extensions (a la get_selection)
 - Way to run command in totally separate interpreter (fork+os.system?) DONE
 - Way to find definition of fully-qualified name:

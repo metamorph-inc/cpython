@@ -123,7 +123,7 @@ interpreter. ::
    # bound to the Esc key by default (you can change it - see readline docs).
    #
    # Store the file in ~/.pystartup, and set an environment variable to point
-   # to it:  "export PYTHONSTARTUP=~/.pystartup" in bash.
+   # to it:  "export OMPYTHONSTARTUP=~/.pystartup" in bash.
 
    import atexit
    import os
@@ -165,7 +165,7 @@ bpython_.
 .. rubric:: Footnotes
 
 .. [#] Python will execute the contents of a file identified by the
-   :envvar:`PYTHONSTARTUP` environment variable when you start an interactive
+   :envvar:`OMPYTHONSTARTUP` environment variable when you start an interactive
    interpreter.  To customize Python even for non-interactive mode, see
    :ref:`tut-customize`.
 

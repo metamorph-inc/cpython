@@ -735,7 +735,7 @@ Fixed possible use after free in ElementTree.iterparse().
 .. section: Library
 
 _args_from_interpreter_flags used by multiprocessing and some tests no
-longer behaves incorrectly in the presence of the PYTHONHASHSEED environment
+longer behaves incorrectly in the presence of the OMPYTHONHASHSEED environment
 variable.
 
 ..

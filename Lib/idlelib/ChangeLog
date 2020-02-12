@@ -52,7 +52,7 @@ IDLEfork ChangeLog
 	debugger -i	    open an interactive shell -i file(s) open a
 	shell and also an editor window for each file -r script  run a file
 	as a script in a shell -s	  run $IDLESTARTUP or
-	$PYTHONSTARTUP before anything else -t title   set title of shell
+	$OMPYTHONSTARTUP before anything else -t title   set title of shell
 	window
 	
 	Remaining arguments are applied to the command (-c) or script (-r).
@@ -1063,7 +1063,7 @@ Thu Apr 22 23:20:17 1999  Guido van Rossum  <guido@cnri.reston.va.us>
 	  idle.py -c cmd arg ... -- to run a command
 	Other options, see also the usage message (also new!) for more details:
 	  -d       -- enable debugger
-	  -s       -- run $IDLESTARTUP or $PYTHONSTARTUP
+	  -s       -- run $IDLESTARTUP or $OMPYTHONSTARTUP
 	  -t title -- set Python Shell window's title
 	sys.argv is set accordingly, unless -e is used.
 	sys.path is absolutized, and all relevant paths are inserted into it.

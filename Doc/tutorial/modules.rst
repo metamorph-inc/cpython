@@ -183,7 +183,7 @@ named :file:`spam.py` in a list of directories given by the variable
 :data:`sys.path`.  :data:`sys.path` is initialized from these locations:
 
 * the directory containing the input script (or the current directory).
-* :envvar:`PYTHONPATH` (a list of directory names, with the same syntax as the
+* :envvar:`OMPYTHONPATH` (a list of directory names, with the same syntax as the
   shell variable :envvar:`PATH`).
 * the installation-dependent default.
 
@@ -285,8 +285,8 @@ These two variables are only defined if the interpreter is in interactive mode.
 
 The variable ``sys.path`` is a list of strings that determines the interpreter's
 search path for modules. It is initialized to a default path taken from the
-environment variable :envvar:`PYTHONPATH`, or from a built-in default if
-:envvar:`PYTHONPATH` is not set.  You can modify it using standard list
+environment variable :envvar:`OMPYTHONPATH`, or from a built-in default if
+:envvar:`OMPYTHONPATH` is not set.  You can modify it using standard list
 operations::
 
    >>> import sys

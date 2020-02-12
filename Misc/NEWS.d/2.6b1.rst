@@ -54,7 +54,7 @@ Added sys.getsizeof() to retrieve size of objects in bytes.
 .. nonce: 7NZKM7
 .. section: Core and Builtins
 
-New environment variable PYTHONIOENCODING.
+New environment variable OMPYTHONIOENCODING.
 
 ..
 

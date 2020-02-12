@@ -114,7 +114,7 @@ empty, and the path manipulations are skipped; however the import of
    Flag showing the status of the user site-packages directory.  ``True`` means
    that it is enabled and was added to ``sys.path``.  ``False`` means that it
    was disabled by user request (with :option:`-s` or
-   :envvar:`PYTHONNOUSERSITE`).  ``None`` means it was disabled for security
+   :envvar:`OMPYTHONNOUSERSITE`).  ``None`` means it was disabled for security
    reasons (mismatch between user or group id and effective id) or by an
    administrator.
 
@@ -143,7 +143,7 @@ empty, and the path manipulations are skipped; however the import of
    :file:`{%APPDATA%}\\Python` for Windows.  This value is used by Distutils to
    compute the installation directories for scripts, data files, Python modules,
    etc. for the :ref:`user installation scheme <inst-alt-install-user>`.  See
-   also :envvar:`PYTHONUSERBASE`.
+   also :envvar:`OMPYTHONUSERBASE`.
 
    .. versionadded:: 2.6
 
@@ -166,7 +166,7 @@ empty, and the path manipulations are skipped; however the import of
 
    Return the path of the user base directory, :data:`USER_BASE`.  If it is not
    initialized yet, this function will also set it, respecting
-   :envvar:`PYTHONUSERBASE`.
+   :envvar:`OMPYTHONUSERBASE`.
 
    .. versionadded:: 2.7
 
@@ -175,7 +175,7 @@ empty, and the path manipulations are skipped; however the import of
 
    Return the path of the user-specific site-packages directory,
    :data:`USER_SITE`.  If it is not initialized yet, this function will also set
-   it, respecting :envvar:`PYTHONNOUSERSITE` and :data:`USER_BASE`.
+   it, respecting :envvar:`OMPYTHONNOUSERSITE` and :data:`USER_BASE`.
 
    .. versionadded:: 2.7
 

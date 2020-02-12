@@ -33,13 +33,13 @@ extern BOOL PyWin_IsWin32s(void);
  * directory containing the executable as progpath.  We work backwards
  * along progpath and look for $dir/Modules/Setup.in, a distinctive
  * landmark.  If found, we use $dir/Lib as $root.  The returned
- * Python path is the compiled #define PYTHONPATH with all the initial
+ * Python path is the compiled #define OMPYTHONPATH with all the initial
  * "./lib" replaced by $root.
  *
- * Otherwise, if there is a PYTHONPATH environment variable, we return that.
+ * Otherwise, if there is a OMPYTHONPATH environment variable, we return that.
  *
  * Otherwise we try to find $progpath/lib/os.py, and if found, then
- * root is $progpath/lib, and we return Python path as compiled PYTHONPATH
+ * root is $progpath/lib, and we return Python path as compiled OMPYTHONPATH
  * with all "./lib" replaced by $root (as above).
  *
  */
@@ -138,7 +138,7 @@ search_for_prefix(char *argv0_path, char *landmark)
 extern const char *PyWin_DLLVersionString; // a string loaded from the DLL at startup.
 
 
-/* Load a PYTHONPATH value from the registry.
+/* Load a OMPYTHONPATH value from the registry.
    Load from either HKEY_LOCAL_MACHINE or HKEY_CURRENT_USER.
 
    Returns NULL, or a pointer that should be freed.
@@ -300,7 +300,7 @@ calculate_path(void)
     char *buf;
     int bufsz;
     char *pythonhome = Py_GetPythonHome();
-    char *envpath = Py_GETENV("PYTHONPATH");
+    char *envpath = Py_GETENV("OMPYTHONPATH");
 #ifdef MS_WIN32
     char *machinepath, *userpath;
 
@@ -330,7 +330,7 @@ calculate_path(void)
         strcpy(prefix, pythonhome);
 
         /* Extract Any Optional Trailing EXEC_PREFIX */
-        /* e.g. PYTHONHOME=<prefix>:<exec_prefix>   */
+        /* e.g. OMPYTHONHOME=<prefix>:<exec_prefix>   */
         delim = strchr(prefix, DELIM);
         if (delim) {
             *delim = '\0';
@@ -343,9 +343,9 @@ calculate_path(void)
         envpath = NULL;
 
     /* We need to construct a path from the following parts:
-       (1) the PYTHONPATH environment variable, if set;
+       (1) the OMPYTHONPATH environment variable, if set;
        (2) for Win32, the machinepath and userpath, if set;
-       (3) the PYTHONPATH config macro, with the leading "."
+       (3) the OMPYTHONPATH config macro, with the leading "."
            of each component replaced with pythonhome, if set;
        (4) the directory containing the executable (argv0_path).
        The length calculation calculates #3 first.
@@ -355,7 +355,7 @@ calculate_path(void)
     if (pythonhome != NULL) {
         char *p;
         bufsz = 1;
-        for (p = PYTHONPATH; *p; p++) {
+        for (p = OMPYTHONPATH; *p; p++) {
             if (*p == DELIM)
                 bufsz++; /* number of DELIM plus one */
         }
@@ -363,7 +363,7 @@ calculate_path(void)
     }
     else
         bufsz = 0;
-    bufsz += strlen(PYTHONPATH) + 1;
+    bufsz += strlen(OMPYTHONPATH) + 1;
     if (envpath != NULL)
         bufsz += strlen(envpath) + 1;
     bufsz += strlen(argv0_path) + 1;
@@ -377,14 +377,14 @@ calculate_path(void)
     module_search_path = buf = malloc(bufsz);
     if (buf == NULL) {
         /* We can't exit, so print a warning and limp along */
-        fprintf(stderr, "Can't malloc dynamic PYTHONPATH.\n");
+        fprintf(stderr, "Can't malloc dynamic OMPYTHONPATH.\n");
         if (envpath) {
-            fprintf(stderr, "Using default static $PYTHONPATH.\n");
+            fprintf(stderr, "Using default static $OMPYTHONPATH.\n");
             module_search_path = envpath;
         }
         else {
-            fprintf(stderr, "Using environment $PYTHONPATH.\n");
-            module_search_path = PYTHONPATH;
+            fprintf(stderr, "Using environment $OMPYTHONPATH.\n");
+            module_search_path = OMPYTHONPATH;
         }
         return;
     }
@@ -407,11 +407,11 @@ calculate_path(void)
     }
 #endif
     if (pythonhome == NULL) {
-        strcpy(buf, PYTHONPATH);
+        strcpy(buf, OMPYTHONPATH);
         buf = strchr(buf, '\0');
     }
     else {
-        char *p = PYTHONPATH;
+        char *p = OMPYTHONPATH;
         char *q;
         int n;
         for (;;) {

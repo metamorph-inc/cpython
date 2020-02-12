@@ -114,7 +114,7 @@ See "YOU HAVE BEEN WARNED" item 3 for notes about the fcntl module, and
 "YOU HAVE BEEN WARNED" item 10 for notes about the pwd and grp modules.
 
 This port supports case sensitive module import semantics, matching 
-the Windows release.  This can be deactivated by setting the PYTHONCASEOK 
+the Windows release.  This can be deactivated by setting the OMPYTHONCASEOK 
 environment variable (the value doesn't matter) - see "YOU HAVE BEEN WARNED" 
 item 12.
 
@@ -216,18 +216,18 @@ of the drive where you want Python to live.
 Add the Python directory (eg C:\Python26) to the PATH and LIBPATH 
 variables in CONFIG.SYS.
 
-You should then set the PYTHONHOME and PYTHONPATH environment variables 
+You should then set the OMPYTHONHOME and OMPYTHONPATH environment variables 
 in CONFIG.SYS.
 
-PYTHONHOME should be set to Python's top level directory.  PYTHONPATH 
+OMPYTHONHOME should be set to Python's top level directory.  OMPYTHONPATH 
 should be set to the semicolon separated list of principal Python library 
 directories.
 I use:
-  SET PYTHONHOME=F:/Python26
-  SET PYTHONPATH=F:/Python26/Lib;F:/Python26/Lib/plat-os2emx;
+  SET OMPYTHONHOME=F:/Python26
+  SET OMPYTHONPATH=F:/Python26/Lib;F:/Python26/Lib/plat-os2emx;
                  F:/Python26/Lib/lib-dynload;F:/Python26/Lib/site-packages
 
-NOTE!:  the PYTHONPATH setting above is linewrapped for this document - it 
+NOTE!:  the OMPYTHONPATH setting above is linewrapped for this document - it 
 should all be on one line in CONFIG.SYS!
 
 If you wish to use the curses module, you should set the TERM and TERMINFO 
@@ -298,20 +298,20 @@ Procedure
 
 1. decide if you need to change the location of the Python installation.
    If you wish to do this, set the value of the Makefile variable LIB_DIR 
-   to the directory you wish to use for PYTHONHOME 
+   to the directory you wish to use for OMPYTHONHOME 
    (eg /usr/local/lib/python2.6).
 
-   If you want Python to find its library without the PYTHONHOME 
+   If you want Python to find its library without the OMPYTHONHOME 
    environment variable set, set the value of the Makefile variable 
    FIXED_PYHOME to "yes" (uncomment the appropriate line).
 
 2. If you wish the Python executables (python.exe, pythonpm.exe & pgen.exe) 
-   to be installed in a directory other than the PYTHONHOME directory, set 
+   to be installed in a directory other than the OMPYTHONHOME directory, set 
    the value of the Makefile variable EXE_DIR to the appropriate directory.
 
 3. If you wish the Python core DLL (python27.dll) to be installed in a 
    directory other than the directory in which the Python executables are 
-   installed (by default, the PYTHONHOME directory), set the value of the 
+   installed (by default, the OMPYTHONHOME directory), set the value of the 
    Makefile variable DLL_DIR to the appropriate directory.  This DLL must 
    be placed in a directory on the system's LIBPATH, or that gets set 
    with BEGINLIBPATH or ENDLIBPATH.
@@ -441,18 +441,18 @@ I have written pure Python substitutes for pwd and grp, which can process
 real passwd and group files for those applications (such as MailMan) that 
 require more than EMX emulates.  I have placed pwd.py and grp.py in 
 Lib/plat-os2emx, which is usually before Lib/lib-dynload (which contains 
-pwd.pyd) in the PYTHONPATH.  If you have become attached to what pwd.pyd 
-supports, you can put Lib/lib-dynload before Lib/plat-os2emx in PYTHONPATH 
+pwd.pyd) in the OMPYTHONPATH.  If you have become attached to what pwd.pyd 
+supports, you can put Lib/lib-dynload before Lib/plat-os2emx in OMPYTHONPATH 
 or delete/rename pwd.py & grp.py.
 
 pwd.py & grp.py support locating their data files by looking in the 
 environment for them in the following sequence:
 pwd.py:  $ETC_PASSWD             (%ETC_PASSWD%)
          $ETC/passwd             (%ETC%/passwd)
-         $PYTHONHOME/Etc/passwd  (%PYTHONHOME%/Etc/passwd)
+         $OMPYTHONHOME/Etc/passwd  (%OMPYTHONHOME%/Etc/passwd)
 grp.py:  $ETC_GROUP              (%ETC_GROUP%)
          $ETC/group              (%ETC%/group)
-         $PYTHONHOME/Etc/group   (%PYTHONHOME%/Etc/group)
+         $OMPYTHONHOME/Etc/group   (%OMPYTHONHOME%/Etc/group)
 
 The ETC_PASSWD and ETC_GROUP environment variables are intended to allow 
 support for multiple passwd/grp files, where other applications may not 
@@ -480,7 +480,7 @@ out what is supported.
 12. The case sensitive import semantics introduced in Python 2.1 for other 
 case insensitive but case preserving file/operating systems (Windows etc), 
 have been incorporated into this port, and are active by default.  Setting 
-the PYTHONCASEOK environment variable (to any value) reverts to the 
+the OMPYTHONCASEOK environment variable (to any value) reverts to the 
 previous (case insensitive) semantics.  This can be an issue with some 
 file management utilities that do not preserve the case of file and
 directory names.

@@ -153,9 +153,9 @@ class HashRandomizationTests(unittest.TestCase):
     def get_hash(self, repr_, seed=None):
         env = os.environ.copy()
         if seed is not None:
-            env['PYTHONHASHSEED'] = str(seed)
+            env['OMPYTHONHASHSEED'] = str(seed)
         else:
-            env.pop('PYTHONHASHSEED', None)
+            env.pop('OMPYTHONHASHSEED', None)
         cmd_line = [sys.executable, '-c', self.get_hash_command(repr_)]
         p = subprocess.Popen(cmd_line, stdin=subprocess.PIPE,
                              stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
@@ -172,7 +172,7 @@ class HashRandomizationTests(unittest.TestCase):
 
 class StringlikeHashRandomizationTests(HashRandomizationTests):
     def test_null_hash(self):
-        # PYTHONHASHSEED=0 disables the randomized hash
+        # OMPYTHONHASHSEED=0 disables the randomized hash
         if IS_64BIT:
             known_hash_of_obj = 1453079729188098211
         else:

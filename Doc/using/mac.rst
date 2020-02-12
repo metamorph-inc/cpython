@@ -107,7 +107,7 @@ Configuration
 -------------
 
 Python on OS X honors all standard Unix environment variables such as
-:envvar:`PYTHONPATH`, but setting these variables for programs started from the
+:envvar:`OMPYTHONPATH`, but setting these variables for programs started from the
 Finder is non-standard as the Finder does not read your :file:`.profile` or
 :file:`.cshrc` at startup. You need to create a file
 :file:`~/.MacOSX/environment.plist`. See Apple's Technical Document QA1067 for

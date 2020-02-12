@@ -58,9 +58,9 @@
  * the landmarks, the assumption is that python is running from an
  * installed setup.
  *
- * Step 2. See if the $PYTHONHOME environment variable points to the
- * installed location of the Python libraries.  If $PYTHONHOME is set, then
- * it points to prefix and exec_prefix.  $PYTHONHOME can be a single
+ * Step 2. See if the $OMPYTHONHOME environment variable points to the
+ * installed location of the Python libraries.  If $OMPYTHONHOME is set, then
+ * it points to prefix and exec_prefix.  $OMPYTHONHOME can be a single
  * directory, which is used for both, or the prefix and exec_prefix
  * directories separated by a colon.
  *
@@ -77,10 +77,10 @@
  * That's it!
  *
  * Well, almost.  Once we have determined prefix and exec_prefix, the
- * preprocessor variable PYTHONPATH is used to construct a path.  Each
- * relative path on PYTHONPATH is prefixed with prefix.  Then the directory
+ * preprocessor variable OMPYTHONPATH is used to construct a path.  Each
+ * relative path on OMPYTHONPATH is prefixed with prefix.  Then the directory
  * containing the shared library modules is appended.  The environment
- * variable $PYTHONPATH is inserted in front of it all.  Finally, the
+ * variable $OMPYTHONPATH is inserted in front of it all.  Finally, the
  * prefix and exec_prefix globals are tweaked so they reflect the values
  * expected by other code, by stripping the "lib/python$VERSION/..." stuff
  * off.  If either points to the build directory, the globals are reset to
@@ -243,7 +243,7 @@ search_for_prefix(char *argv0_path, char *home)
     size_t n;
     char *vpath;
 
-    /* If PYTHONHOME is set, we believe it unconditionally */
+    /* If OMPYTHONHOME is set, we believe it unconditionally */
     if (home) {
         char *delim;
         strncpy(prefix, home, MAXPATHLEN);
@@ -301,7 +301,7 @@ search_for_exec_prefix(char *argv0_path, char *home)
 {
     size_t n;
 
-    /* If PYTHONHOME is set, we believe it unconditionally */
+    /* If OMPYTHONHOME is set, we believe it unconditionally */
     if (home) {
         char *delim;
         delim = strchr(home, DELIM);
@@ -366,8 +366,8 @@ calculate_path(void)
 
     static char delimiter[2] = {DELIM, '\0'};
     static char separator[2] = {SEP, '\0'};
-    char *pythonpath = PYTHONPATH;
-    char *rtpypath = Py_GETENV("PYTHONPATH");
+    char *pythonpath = OMPYTHONPATH;
+    char *rtpypath = Py_GETENV("OMPYTHONPATH");
     char *home = Py_GetPythonHome();
     char *path = getenv("PATH");
     char *prog = Py_GetProgramName();
@@ -536,7 +536,7 @@ calculate_path(void)
 
     if ((!pfound || !efound) && !Py_FrozenFlag)
         fprintf(stderr,
-                "Consider setting $PYTHONHOME to <prefix>[:<exec_prefix>]\n");
+                "Consider setting $OMPYTHONHOME to <prefix>[:<exec_prefix>]\n");
 
     /* Calculate size of return buffer.
      */
@@ -571,12 +571,12 @@ calculate_path(void)
 
     if (buf == NULL) {
         /* We can't exit, so print a warning and limp along */
-        fprintf(stderr, "Not enough memory for dynamic PYTHONPATH.\n");
-        fprintf(stderr, "Using default static PYTHONPATH.\n");
-        module_search_path = PYTHONPATH;
+        fprintf(stderr, "Not enough memory for dynamic OMPYTHONPATH.\n");
+        fprintf(stderr, "Using default static OMPYTHONPATH.\n");
+        module_search_path = OMPYTHONPATH;
     }
     else {
-        /* Run-time value of $PYTHONPATH goes first */
+        /* Run-time value of $OMPYTHONPATH goes first */
         if (rtpypath) {
             strcpy(buf, rtpypath);
             strcat(buf, delimiter);
@@ -588,7 +588,7 @@ calculate_path(void)
         strcat(buf, zip_path);
         strcat(buf, delimiter);
 
-        /* Next goes merge of compile-time $PYTHONPATH with
+        /* Next goes merge of compile-time $OMPYTHONPATH with
          * dynamically located prefix.
          */
         defpath = pythonpath;

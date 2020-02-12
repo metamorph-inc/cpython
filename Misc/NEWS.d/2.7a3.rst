@@ -439,4 +439,4 @@ Updated "Using Python" documentation to include description of CPython's -J,
 .. section: Documentation
 
 Updated Python manual page (options -B, -O0, -s, environment variables
-PYTHONDONTWRITEBYTECODE, PYTHONNOUSERSITE).
+OMPYTHONDONTWRITEBYTECODE, OMPYTHONNOUSERSITE).
