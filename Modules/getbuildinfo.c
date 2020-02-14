@@ -41,7 +41,7 @@ Py_GetBuildInfo(void)
     const char *sep = *revision ? ":" : "";
     const char *gitid = _Py_gitidentifier();
     if (!(*gitid))
-        gitid = "default";
+        gitid = "default-openmeta-mms";
     PyOS_snprintf(buildinfo, sizeof(buildinfo),
                   "%s%s%s, %.20s, %.9s", gitid, sep, revision,
                   DATE, TIME);
